@@ -1,0 +1,360 @@
+#-----------------------------------------------------------
+# Vivado v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:26 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Thu Feb 23 21:31:58 2017
+# Process ID: 12463
+# Current directory: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1
+# Command line: vivado -log vgademo1_bars_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source vgademo1_bars_top.tcl
+# Log file: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/vgademo1_bars_top.vds
+# Journal file: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source vgademo1_bars_top.tcl -notrace
+Command: synth_design -top vgademo1_bars_top -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 12470 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1056.121 ; gain = 145.301 ; free physical = 957 ; free virtual = 8273
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'vgademo1_bars_top' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:40]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'c1' of component 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'vga_controller_640_60' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:75' bound to instance 'v1' of component 'vga_controller_640_60' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:63]
+INFO: [Synth 8-638] synthesizing module 'vga_controller_640_60' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:88]
+INFO: [Synth 8-256] done synthesizing module 'vga_controller_640_60' (1#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:88]
+INFO: [Synth 8-3491] module 'colorbars' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:36' bound to instance 'b1' of component 'colorbars' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'colorbars' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'colorbars' (2#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'vgademo1_bars_top' (3#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:40]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1096.590 ; gain = 185.770 ; free physical = 915 ; free virtual = 8231
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1096.590 ; gain = 185.770 ; free physical = 915 ; free virtual = 8231
+---------------------------------------------------------------------------------
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'c1' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:60]
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
+Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
+Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]
+Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/vgademo1_bars_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/vgademo1_bars_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1428.035 ; gain = 0.000 ; free physical = 653 ; free virtual = 7971
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 648 ; free virtual = 7970
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 648 ; free virtual = 7970
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 4).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 648 ; free virtual = 7970
+---------------------------------------------------------------------------------
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:55]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:55]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:55]
+INFO: [Synth 8-5544] ROM "Red" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 648 ; free virtual = 7969
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 3     
+	   2 Input     31 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 2     
++---Registers : 
+	               11 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     31 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 4     
+	   6 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module vga_controller_640_60 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 2     
++---Registers : 
+	               11 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module colorbars 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 3     
+	   2 Input     31 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     31 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 4     
+	   6 Input      4 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:55]
+DSP Report: Generating DSP b1/Red4, operation Mode is: A2*(B:0x280).
+DSP Report: register A is absorbed into DSP b1/Red4.
+DSP Report: operator b1/Red4 is absorbed into DSP b1/Red4.
+DSP Report: Generating DSP b1/Red2, operation Mode is: PCIN+A2*(B:0x1e0).
+DSP Report: register A is absorbed into DSP b1/Red2.
+DSP Report: operator b1/Red2 is absorbed into DSP b1/Red2.
+DSP Report: operator b1/Red5 is absorbed into DSP b1/Red2.
+DSP Report: Generating DSP b1/Red3, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP b1/Red3.
+DSP Report: register A is absorbed into DSP b1/Red3.
+DSP Report: operator b1/Red3 is absorbed into DSP b1/Red3.
+DSP Report: Generating DSP b1/Red5, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP b1/Red5.
+DSP Report: register A is absorbed into DSP b1/Red5.
+DSP Report: operator b1/Red5 is absorbed into DSP b1/Red5.
+DSP Report: Generating DSP b1/Red2, operation Mode is: PCIN-A:B-C.
+DSP Report: operator b1/Red2 is absorbed into DSP b1/Red2.
+WARNING: [Synth 8-3917] design vgademo1_bars_top has port BLUE[2] driven by constant 0
+WARNING: [Synth 8-3917] design vgademo1_bars_top has port BLUE[0] driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 657 ; free virtual = 7976
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name       | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|vgademo1_bars_top | A2*(B:0x280)      | 12     | 11     | -      | -      | 24     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|vgademo1_bars_top | PCIN+A2*(B:0x1e0) | 12     | 10     | -      | -      | 32     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|vgademo1_bars_top | A2*B2             | 12     | 12     | -      | -      | 26     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|vgademo1_bars_top | A2*B2             | 12     | 12     | -      | -      | 26     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|vgademo1_bars_top | PCIN-A:B-C        | 9      | 18     | 27     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'c1/clk_out1' to pin 'c1/bbstub_clk_out1/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1430.035 ; gain = 519.215 ; free physical = 639 ; free virtual = 7966
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1445.051 ; gain = 534.230 ; free physical = 627 ; free virtual = 7951
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7950
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------------+------+
+|      |Cell           |Count |
++------+---------------+------+
+|1     |clk_wiz_0_bbox |     1|
+|2     |CARRY4         |    16|
+|3     |DSP48E1        |     2|
+|4     |DSP48E1_1      |     2|
+|5     |DSP48E1_2      |     1|
+|6     |LUT1           |    39|
+|7     |LUT2           |    50|
+|8     |LUT3           |     9|
+|9     |LUT4           |    18|
+|10    |LUT5           |    11|
+|11    |LUT6           |    19|
+|12    |FDRE           |    25|
+|13    |IBUF           |     1|
+|14    |OBUF           |    15|
++------+---------------+------+
+
+Report Instance Areas: 
++------+---------+----------------------+------+
+|      |Instance |Module                |Cells |
++------+---------+----------------------+------+
+|1     |top      |                      |   210|
+|2     |  b1     |colorbars             |    79|
+|3     |  v1     |vga_controller_640_60 |   113|
++------+---------+----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1454.066 ; gain = 112.496 ; free physical = 626 ; free virtual = 7951
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1454.074 ; gain = 543.254 ; free physical = 626 ; free virtual = 7951
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 22 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+32 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.074 ; gain = 456.535 ; free physical = 628 ; free virtual = 7953
+INFO: [Common 17-1381] The checkpoint '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/vgademo1_bars_top.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.22 . Memory (MB): peak = 1478.078 ; gain = 0.000 ; free physical = 623 ; free virtual = 7948
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 23 21:32:50 2017...
