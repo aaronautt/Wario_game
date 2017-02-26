@@ -2,8 +2,8 @@
 # Vivado v2016.3 (64-bit)
 # SW Build 1682563 on Mon Oct 10 19:07:26 MDT 2016
 # IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
-# Start of session at: Thu Feb 23 21:31:58 2017
-# Process ID: 12463
+# Start of session at: Sat Feb 25 11:55:12 2017
+# Process ID: 8723
 # Current directory: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1
 # Command line: vivado -log vgademo1_bars_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source vgademo1_bars_top.tcl
 # Log file: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/vgademo1_bars_top.vds
@@ -14,16 +14,16 @@ Command: synth_design -top vgademo1_bars_top -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 12470 
+INFO: Helper process launched with PID 8731 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1056.121 ; gain = 145.301 ; free physical = 957 ; free virtual = 8273
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1056.125 ; gain = 145.301 ; free physical = 1293 ; free virtual = 9372
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'vgademo1_bars_top' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:40]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'c1' of component 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:60]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'c1' of component 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:15]
 INFO: [Synth 8-3491] module 'vga_controller_640_60' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:75' bound to instance 'v1' of component 'vga_controller_640_60' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:63]
 INFO: [Synth 8-638] synthesizing module 'vga_controller_640_60' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:88]
 INFO: [Synth 8-256] done synthesizing module 'vga_controller_640_60' (1#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:88]
@@ -32,7 +32,7 @@ INFO: [Synth 8-638] synthesizing module 'colorbars' [/home/aaron/school/EGR426/W
 INFO: [Synth 8-256] done synthesizing module 'colorbars' (2#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'vgademo1_bars_top' (3#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:40]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1096.590 ; gain = 185.770 ; free physical = 915 ; free virtual = 8231
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1096.594 ; gain = 185.770 ; free physical = 1253 ; free virtual = 9329
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -42,17 +42,17 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1096.590 ; gain = 185.770 ; free physical = 915 ; free virtual = 8231
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1096.594 ; gain = 185.770 ; free physical = 1253 ; free virtual = 9329
 ---------------------------------------------------------------------------------
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'c1' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:60]
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
-Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
+Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
+Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
 Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]
 Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/vgademo1_bars_top_propImpl.xdc].
@@ -62,32 +62,32 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1428.035 ; gain = 0.000 ; free physical = 653 ; free virtual = 7971
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1428.039 ; gain = 0.000 ; free physical = 1077 ; free virtual = 9155
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 648 ; free virtual = 7970
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1428.039 ; gain = 517.215 ; free physical = 1075 ; free virtual = 9154
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 648 ; free virtual = 7970
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1428.039 ; gain = 517.215 ; free physical = 1075 ; free virtual = 9154
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12463-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-8723-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 4).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 648 ; free virtual = 7970
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1428.039 ; gain = 517.215 ; free physical = 1075 ; free virtual = 9153
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:55]
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:55]
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:55]
 INFO: [Synth 8-5544] ROM "Red" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 648 ; free virtual = 7969
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1428.039 ; gain = 517.215 ; free physical = 1072 ; free virtual = 9146
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -178,7 +178,7 @@ DSP Report: operator b1/Red2 is absorbed into DSP b1/Red2.
 WARNING: [Synth 8-3917] design vgademo1_bars_top has port BLUE[2] driven by constant 0
 WARNING: [Synth 8-3917] design vgademo1_bars_top has port BLUE[0] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1428.035 ; gain = 517.215 ; free physical = 657 ; free virtual = 7976
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1428.039 ; gain = 517.215 ; free physical = 1049 ; free virtual = 9124
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -214,10 +214,10 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'c1/clk_out1' to pin 'c1/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1430.035 ; gain = 519.215 ; free physical = 639 ; free virtual = 7966
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1429.039 ; gain = 518.215 ; free physical = 985 ; free virtual = 9062
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1445.051 ; gain = 534.230 ; free physical = 627 ; free virtual = 7951
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1445.055 ; gain = 534.230 ; free physical = 970 ; free virtual = 9047
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -229,7 +229,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7950
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1454.070 ; gain = 543.246 ; free physical = 941 ; free virtual = 9021
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -253,7 +253,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.070 ; gain = 543.246 ; free physical = 892 ; free virtual = 8989
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -266,7 +266,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.070 ; gain = 543.246 ; free physical = 887 ; free virtual = 8991
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -278,25 +278,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.070 ; gain = 543.246 ; free physical = 878 ; free virtual = 8995
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.070 ; gain = 543.246 ; free physical = 878 ; free virtual = 8995
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.070 ; gain = 543.246 ; free physical = 878 ; free virtual = 8994
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.070 ; gain = 543.246 ; free physical = 878 ; free virtual = 8994
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -338,11 +338,11 @@ Report Instance Areas:
 |3     |  v1     |vga_controller_640_60 |   113|
 +------+---------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1454.066 ; gain = 543.246 ; free physical = 626 ; free virtual = 7951
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.070 ; gain = 543.246 ; free physical = 878 ; free virtual = 8994
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1454.066 ; gain = 112.496 ; free physical = 626 ; free virtual = 7951
-Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1454.074 ; gain = 543.254 ; free physical = 626 ; free virtual = 7951
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 1454.070 ; gain = 112.496 ; free physical = 862 ; free virtual = 8980
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.078 ; gain = 543.254 ; free physical = 863 ; free virtual = 8982
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 22 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -354,7 +354,7 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 32 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1454.074 ; gain = 456.535 ; free physical = 628 ; free virtual = 7953
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1454.078 ; gain = 456.535 ; free physical = 802 ; free virtual = 8952
 INFO: [Common 17-1381] The checkpoint '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/vgademo1_bars_top.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.22 . Memory (MB): peak = 1478.078 ; gain = 0.000 ; free physical = 623 ; free virtual = 7948
-INFO: [Common 17-206] Exiting Vivado at Thu Feb 23 21:32:50 2017...
+report_utilization: Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.21 . Memory (MB): peak = 1478.082 ; gain = 0.000 ; free physical = 799 ; free virtual = 8950
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 25 11:56:02 2017...
