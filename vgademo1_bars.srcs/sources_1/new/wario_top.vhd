@@ -48,13 +48,33 @@ port(rst,pixel_clk : in std_logic; HS,VS,blank : out std_logic;
      hcount,vcount : out std_logic_vector(10 downto 0));
 end component;
 
-component colorbars is
+component background is
 Port (hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); blank : in STD_LOGIC;
       Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
+component merge_display is
+  Port (Red_w,Red_b : in STD_LOGIC_VECTOR(3 downto 0);
+        Green_w,Green_b : in STD_LOGIC_VECTOR(3 downto 0);
+        Blue_w,Blue_b : in STD_LOGIC_VECTOR(3 downto 0);
+        Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
+end component;
+
+component words is
+  PORT(clk25, blank : in STD_LOGIC; hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); 
+       Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
+end component;
+
+
+
 signal clk_25MHz,blank : STD_LOGIC;
 signal hcount,vcount : STD_LOGIC_VECTOR(10 downto 0);
+signal RED_w,GREEN_w,BLUE_w : STD_LOGIC_VECTOR(3 downto 0);
+signal RED_b,GREEN_b,BLUE_b : STD_LOGIC_VECTOR(3 downto 0);
+--signal RED_r,GREEN_r,BLUE_r : STD_LOGIC_VECTOR(3 downto 0);
+--signal RED_g,GREEN_g,BLUE_g : STD_LOGIC_VECTOR(3 downto 0);
+--signal RED_t,GREEN_t,BLUE_t : STD_LOGIC_VECTOR(3 downto 0);
+
 -- ---------------------------------------------------------------------
 begin
 c1 : clk_wiz_0 PORT MAP (clk_in1 => clk_100MHz, reset => reset, clk_out1 => clk_25MHz,
@@ -64,7 +84,16 @@ v1 : vga_controller_640_60 PORT MAP (pixel_clk => clk_25MHz, rst => reset, HS =>
                                      VS => VSYNC, blank => blank, hcount => hcount, 
                                      vcount => vcount);
 
-b1 : colorbars PORT MAP (hcount => hcount, vcount => vcount, blank => blank,
-                         Red => RED, Green => GREEN, Blue => BLUE);
+b1 : background PORT MAP (hcount => hcount, vcount => vcount, blank => blank,
+                         Red => RED_b, Green => GREEN_b, Blue => BLUE_b);
+
+m1 : merge_display PORT MAP (Red_w => RED_w, Red_b => RED_b,
+                             Green_w => GREEN_w, Green_b => GREEN_b,
+                             Blue_w => BLUE_w, Blue_b => BLUE_b, 
+                             red => red, green => green, blue => blue);
+
+W1 : words PORT MAP (clk25 => clk_25MHZ, blank => blank, hcount => hcount,
+                     vcount => vcount, Red => RED_w, Green => GREEN_w, Blue => BLUE_w);
+
 
 end Behavioral;

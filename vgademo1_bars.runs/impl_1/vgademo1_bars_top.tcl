@@ -52,7 +52,7 @@ set rc [catch {
   set_param xicom.use_bs_reader 1
   open_checkpoint vgademo1_bars_top_routed.dcp
   set_property webtalk.parent_dir /home/aaron/school/EGR426/Wario/vgademo1_bars.cache/wt [current_project]
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force vgademo1_bars_top.mmi }
   write_bitstream -force -no_partial_bitfile vgademo1_bars_top.bit 
   catch { write_sysdef -hwdef vgademo1_bars_top.hwdef -bitfile vgademo1_bars_top.bit -meminfo vgademo1_bars_top.mmi -file vgademo1_bars_top.sysdef }

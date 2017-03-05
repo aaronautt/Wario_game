@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Thu Feb 23 21:32:50 2017
+| Date         : Sun Mar  5 14:29:18 2017
 | Host         : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command      : report_utilization -file vgademo1_bars_top_utilization_synth.rpt -pb vgademo1_bars_top_utilization_synth.pb
 | Design       : vgademo1_bars_top
@@ -27,18 +27,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+-------------------------+------+-------+-----------+-------+
-|        Site Type        | Used | Fixed | Available | Util% |
-+-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  108 |     0 |     20800 |  0.52 |
-|   LUT as Logic          |  108 |     0 |     20800 |  0.52 |
-|   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   25 |     0 |     41600 |  0.06 |
-|   Register as Flip Flop |   25 |     0 |     41600 |  0.06 |
-|   Register as Latch     |    0 |     0 |     41600 |  0.00 |
-| F7 Muxes                |    0 |     0 |     16300 |  0.00 |
-| F8 Muxes                |    0 |     0 |      8150 |  0.00 |
-+-------------------------+------+-------+-----------+-------+
++----------------------------+------+-------+-----------+-------+
+|          Site Type         | Used | Fixed | Available | Util% |
++----------------------------+------+-------+-----------+-------+
+| Slice LUTs*                |  127 |     0 |     20800 |  0.61 |
+|   LUT as Logic             |  123 |     0 |     20800 |  0.59 |
+|   LUT as Memory            |    4 |     0 |      9600 |  0.04 |
+|     LUT as Distributed RAM |    0 |     0 |           |       |
+|     LUT as Shift Register  |    4 |     0 |           |       |
+| Slice Registers            |   39 |     0 |     41600 |  0.09 |
+|   Register as Flip Flop    |   39 |     0 |     41600 |  0.09 |
+|   Register as Latch        |    0 |     0 |     41600 |  0.00 |
+| F7 Muxes                   |    1 |     0 |     16300 | <0.01 |
+| F8 Muxes                   |    0 |     0 |      8150 |  0.00 |
++----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
 
@@ -57,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 25    |          Yes |       Reset |            - |
+| 39    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -150,16 +152,18 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |   50 |                 LUT |
+| LUT2     |   47 |                 LUT |
 | LUT1     |   39 |                 LUT |
-| FDRE     |   25 |        Flop & Latch |
-| LUT6     |   19 |                 LUT |
-| LUT4     |   18 |                 LUT |
+| FDRE     |   39 |        Flop & Latch |
+| LUT6     |   30 |                 LUT |
+| LUT4     |   26 |                 LUT |
 | CARRY4   |   16 |          CarryLogic |
 | OBUF     |   15 |                  IO |
-| LUT5     |   11 |                 LUT |
-| LUT3     |    9 |                 LUT |
+| LUT5     |   15 |                 LUT |
 | DSP48E1  |    5 |    Block Arithmetic |
+| SRL16E   |    4 |  Distributed Memory |
+| LUT3     |    4 |                 LUT |
+| MUXF7    |    1 |               MuxFx |
 | IBUF     |    1 |                  IO |
 +----------+------+---------------------+
 
@@ -167,11 +171,12 @@ Table of Contents
 8. Black Boxes
 --------------
 
-+-----------+------+
-|  Ref Name | Used |
-+-----------+------+
-| clk_wiz_0 |    1 |
-+-----------+------+
++---------------+------+
+|    Ref Name   | Used |
++---------------+------+
+| clk_wiz_0     |    1 |
+| blk_mem_gen_0 |    1 |
++---------------+------+
 
 
 9. Instantiated Netlists

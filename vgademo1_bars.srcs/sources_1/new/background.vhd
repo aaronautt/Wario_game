@@ -33,13 +33,16 @@ use ieee.std_logic_arith.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity colorbars is
+entity background is
 Port (hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); blank : in STD_LOGIC;
       Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
-end colorbars;
+end background;
 
-architecture Behavioral of colorbars is
+architecture Behavioral of background is
+
+
 begin
+
   process(hcount,vcount,blank)
     VARIABLE row, col : INTEGER;
   begin
@@ -53,8 +56,8 @@ begin
     elsif (col < (320 - (row/2))) and blank = '0' then
       Red <= "0111"; Green <= "0111"; Blue <= "0000";
     elsif (col > (320 + (row/2))) and blank = '0' then
-      Red <= "0111"; Green <= "0111"; Blue <= "0000";
-    elsif  (480*row-row*row+640*col-col*col)> 157696   then
+      Red <= "0111"; Green <= "0111"; Blue <= "0000"; --(160000 - r^2)
+    elsif  (520*row-row*row+615*col-col*col)> 159980 then --the circle should
       Red <= "1010"; Green <= "1010"; Blue <= "1010"; 
     elsif blank = '0' then
       Red <= "1111"; Green <= "1111"; Blue <= "0000";
@@ -63,18 +66,5 @@ begin
     end if;
   end process;
 
-
--- Red <= "1111"  when (vcount < 60 and blank='0') 
---				or (vcount >=120 and vcount < 200 and blank='0')
---				or (vcount >= 280 and vcount < 360 and blank='0')
---				or (vcount >= 440 and vcount < 520 and blank='0') 
---				else "0000";
-
--- Green <= "1111" when (vcount >= 60 and vcount < 200 and blank='0')
---				 or (vcount >= 360 and vcount < 520 and blank='0') 
---				 else "0000";
-				 
--- Blue <= "1111" when ((vcount >= 200 and vcount < 520 and blank='0'))
---                else "0000";
 
 end Behavioral;

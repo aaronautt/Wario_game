@@ -2,8 +2,8 @@
 # Vivado v2016.3 (64-bit)
 # SW Build 1682563 on Mon Oct 10 19:07:26 MDT 2016
 # IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
-# Start of session at: Thu Feb 23 21:31:58 2017
-# Process ID: 12463
+# Start of session at: Sun Mar  5 14:28:21 2017
+# Process ID: 21578
 # Current directory: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1
 # Command line: vivado -log vgademo1_bars_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source vgademo1_bars_top.tcl
 # Log file: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/vgademo1_bars_top.vds
