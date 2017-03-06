@@ -54,9 +54,9 @@ Port (hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); blank : in STD_LOGIC;
 end component;
 
 component merge_display is
-  Port (Red_w,Red_b : in STD_LOGIC_VECTOR(3 downto 0);
-        Green_w,Green_b : in STD_LOGIC_VECTOR(3 downto 0);
-        Blue_w,Blue_b : in STD_LOGIC_VECTOR(3 downto 0);
+  Port (Red_w,Red_b, Red_s : in STD_LOGIC_VECTOR(3 downto 0);
+        Green_w,Green_b, Green_s : in STD_LOGIC_VECTOR(3 downto 0);
+        Blue_w,Blue_b, Blue_s : in STD_LOGIC_VECTOR(3 downto 0);
         Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
@@ -65,18 +65,24 @@ component words is
        Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
+component swing is
+  Port (vs, blank : in std_logic;
+        hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
+        Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
+end component;
 
-
-signal clk_25MHz,blank : STD_LOGIC;
+signal clk_25MHz,blank,VS : STD_LOGIC;
 signal hcount,vcount : STD_LOGIC_VECTOR(10 downto 0);
 signal RED_w,GREEN_w,BLUE_w : STD_LOGIC_VECTOR(3 downto 0);
 signal RED_b,GREEN_b,BLUE_b : STD_LOGIC_VECTOR(3 downto 0);
---signal RED_r,GREEN_r,BLUE_r : STD_LOGIC_VECTOR(3 downto 0);
+signal RED_s,GREEN_s,BLUE_s : STD_LOGIC_VECTOR(3 downto 0);
 --signal RED_g,GREEN_g,BLUE_g : STD_LOGIC_VECTOR(3 downto 0);
 --signal RED_t,GREEN_t,BLUE_t : STD_LOGIC_VECTOR(3 downto 0);
 
+
 -- ---------------------------------------------------------------------
 begin
+
 c1 : clk_wiz_0 PORT MAP (clk_in1 => clk_100MHz, reset => reset, clk_out1 => clk_25MHz,
                          locked => locked);
 
@@ -87,13 +93,16 @@ v1 : vga_controller_640_60 PORT MAP (pixel_clk => clk_25MHz, rst => reset, HS =>
 b1 : background PORT MAP (hcount => hcount, vcount => vcount, blank => blank,
                          Red => RED_b, Green => GREEN_b, Blue => BLUE_b);
 
-m1 : merge_display PORT MAP (Red_w => RED_w, Red_b => RED_b,
-                             Green_w => GREEN_w, Green_b => GREEN_b,
-                             Blue_w => BLUE_w, Blue_b => BLUE_b, 
+m1 : merge_display PORT MAP (Red_w => RED_w, Red_b => RED_b, Red_s => RED_s,
+                             Green_w => GREEN_w, Green_b => GREEN_b, Green_s => GREEN_s,
+                             Blue_w => BLUE_w, Blue_b => BLUE_b, Blue_s => BLUE_s, 
                              red => red, green => green, blue => blue);
 
 W1 : words PORT MAP (clk25 => clk_25MHZ, blank => blank, hcount => hcount,
                      vcount => vcount, Red => RED_w, Green => GREEN_w, Blue => BLUE_w);
+
+S1 : swing port map (vs => VS, blank => blank, hcount => hcount, vcount => vcount,
+                     Red => RED_s, Green => GREEN_s, Blue => BLUE_S);
 
 
 end Behavioral;

@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date             : Sun Mar  5 14:30:25 2017
+| Date             : Mon Mar  6 17:25:48 2017
 | Host             : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command          : report_power -file vgademo1_bars_top_power_routed.rpt -pb vgademo1_bars_top_power_summary_routed.pb -rpx vgademo1_bars_top_power_routed.rpx
 | Design           : vgademo1_bars_top
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+--------+
-| Total On-Chip Power (W)  | 0.193  |
-| Dynamic (W)              | 0.121  |
+| Total On-Chip Power (W)  | 0.195  |
+| Dynamic (W)              | 0.123  |
 | Device Static (W)        | 0.072  |
 | Effective TJA (C/W)      | 5.0    |
 | Max Ambient (C)          | 84.0   |
@@ -50,20 +50,20 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |    <0.001 |        5 |       --- |             --- |
-| Slice Logic             |    <0.001 |      237 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      118 |     20800 |            0.57 |
-|   CARRY4                |    <0.001 |       16 |      8150 |            0.20 |
+| Slice Logic             |    <0.001 |      786 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |      531 |     20800 |            2.55 |
+|   CARRY4                |    <0.001 |      127 |      8150 |            1.56 |
 |   Register              |    <0.001 |       55 |     41600 |            0.13 |
 |   F7/F8 Muxes           |    <0.001 |        1 |     32600 |           <0.01 |
 |   LUT as Shift Register |    <0.001 |        4 |      9600 |            0.04 |
-|   Others                |     0.000 |       15 |       --- |             --- |
-| Signals                 |    <0.001 |      350 |       --- |             --- |
-| Block RAM               |    <0.001 |      0.5 |        50 |            1.00 |
+|   Others                |     0.000 |       17 |       --- |             --- |
+| Signals                 |    <0.001 |      974 |       --- |             --- |
+| Block RAM               |    <0.001 |        1 |        50 |            2.00 |
 | MMCM                    |     0.116 |        1 |         5 |           20.00 |
-| DSPs                    |    <0.001 |        5 |        90 |            5.56 |
-| I/O                     |     0.003 |       17 |       106 |           16.04 |
+| DSPs                    |    <0.001 |        9 |        90 |           10.00 |
+| I/O                     |     0.004 |       17 |       106 |           16.04 |
 | Static Power            |     0.072 |          |           |                 |
-| Total                   |     0.193 |          |           |                 |
+| Total                   |     0.195 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.012 |       0.002 |      0.010 |
+| Vccint    |       1.000 |     0.013 |       0.003 |      0.010 |
 | Vccaux    |       1.800 |     0.077 |       0.064 |      0.013 |
 | Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -144,7 +144,8 @@ Table of Contents
 +------------------------------------------------+-----------+
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
-| vgademo1_bars_top                              |     0.121 |
+| vgademo1_bars_top                              |     0.123 |
+|   S1                                           |     0.002 |
 |   W1                                           |    <0.001 |
 |     rom                                        |    <0.001 |
 |       U0                                       |    <0.001 |
@@ -153,7 +154,6 @@ Table of Contents
 |             valid.cstr                         |    <0.001 |
 |               ramloop[0].ram.r                 |    <0.001 |
 |                 prim_init.ram                  |    <0.001 |
-|   b1                                           |    <0.001 |
 |   c1                                           |     0.116 |
 |     inst                                       |     0.116 |
 |   v1                                           |    <0.001 |

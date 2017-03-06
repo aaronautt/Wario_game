@@ -175,17 +175,10 @@ end if;
 end process;
 
 process(clk25)      -- Process block to assign pixel values to GB
-variable col1, col2, col3, col0, col4, col5, col6, col7, col8, col9, col10 : integer range 0 to 15;
+variable col1, col2, col3, col0 : integer range 0 to 15;
 begin
   if(rising_edge(clk25)) then
     if(section = '1') then
-      --col10 := col9;
-      --col9 := col8;
-      --col8 := col7;
-      --col7 := col6;
-      --col6 := col5;
-      --col5 := col4;
-      --col4 := col3;
       col3 := col2;
       col2 := col1;
       col1 := col0;
@@ -197,9 +190,34 @@ begin
   end if;
 end process;
 
-Red <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
-Green <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
-Blue <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
+--color_shift : process(vs)
+--  variable one, two, three, four : STD_LOGIC := '0';
+--begin
+--  if vs'event and vs = '1' then
+--    if INTENSITY = '1' then
+--      one := INTENSITY and two;
+--      two := not one;
+--      three := INTENSITY and four;
+--      four := not three;
+--    end if;
+--  if blank = '0' then
+--  Red <= (one & two & three & four);
+--  Green <= (two & three & four & one);
+--  Blue <= (three & four & one & two);
+--  else 
+--  Red <= X"0";
+--  Green <= X"0";
+--  Blue <= X"0";
+--  end if;
+--  end if;
+--end process;
+
+
+
+
+Red <= ('0' & INTENSITY & '0' & INTENSITY) when (blank = '0') else X"0";
+Green <= (INTENSITY & '0' & INTENSITY & INTENSITY) when (blank = '0') else X"0";
+Blue <= (INTENSITY & INTENSITY & INTENSITY & '0') when (blank = '0') else X"0";
 
 
 end Behavioral;
