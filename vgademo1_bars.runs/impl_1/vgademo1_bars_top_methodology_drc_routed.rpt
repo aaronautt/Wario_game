@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Mon Mar  6 17:25:46 2017
+| Date         : Mon Mar  6 23:59:51 2017
 | Host         : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command      : report_methodology -file vgademo1_bars_top_methodology_drc_routed.rpt -rpx vgademo1_bars_top_methodology_drc_routed.rpx
 | Design       : vgademo1_bars_top
@@ -23,65 +23,44 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 25
-+-----------+----------+--------------------------------------------+------------+
-| Rule      | Severity | Description                                | Violations |
-+-----------+----------+--------------------------------------------+------------+
-| SYNTH-6   | Warning  | Timing of a block RAM might be sub-optimal | 1          |
-| SYNTH-10  | Warning  | Wide multiplier                            | 9          |
-| TIMING-18 | Warning  | Missing input or output delay              | 15         |
-+-----------+----------+--------------------------------------------+------------+
+             Violations found: 21
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| SYNTH-10  | Warning  | Wide multiplier               | 6          |
+| TIMING-18 | Warning  | Missing input or output delay | 15         |
++-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
-SYNTH-6#1 Warning
-Timing of a block RAM might be sub-optimal  
-The timing for the instance S1/x_pos_reg, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
-Related violations: <none>
-
 SYNTH-10#1 Warning
-Wide multiplier  
-Detected multiplier at S1/Red3 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#2 Warning
-Wide multiplier  
-Detected multiplier at S1/Red3__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#3 Warning
-Wide multiplier  
-Detected multiplier at S1/Red3__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#4 Warning
-Wide multiplier  
-Detected multiplier at S1/Red5 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#5 Warning
-Wide multiplier  
-Detected multiplier at S1/Red5__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#6 Warning
-Wide multiplier  
-Detected multiplier at S1/Red5__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#7 Warning
 Wide multiplier  
 Detected multiplier at S1/d0 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
-SYNTH-10#8 Warning
+SYNTH-10#2 Warning
 Wide multiplier  
 Detected multiplier at S1/d0__0 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
-SYNTH-10#9 Warning
+SYNTH-10#3 Warning
 Wide multiplier  
 Detected multiplier at S1/d0__1 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#4 Warning
+Wide multiplier  
+Detected multiplier at S1/d0__2 of size 15x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#5 Warning
+Wide multiplier  
+Detected multiplier at S1/d0__3 of size 18x18, it is decomposed from a wide multipler into 4 DSP blocks.
+Related violations: <none>
+
+SYNTH-10#6 Warning
+Wide multiplier  
+Detected multiplier at S1/d0__4 of size 18x15, it is decomposed from a wide multipler into 4 DSP blocks.
 Related violations: <none>
 
 TIMING-18#1 Warning

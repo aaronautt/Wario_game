@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Mon Mar  6 17:24:22 2017
+| Date         : Mon Mar  6 23:58:38 2017
 | Host         : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command      : report_utilization -file vgademo1_bars_top_utilization_synth.rpt -pb vgademo1_bars_top_utilization_synth.pb
 | Design       : vgademo1_bars_top
@@ -30,8 +30,8 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  546 |     0 |     20800 |  2.63 |
-|   LUT as Logic             |  542 |     0 |     20800 |  2.61 |
+| Slice LUTs*                |  721 |     0 |     20800 |  3.47 |
+|   LUT as Logic             |  717 |     0 |     20800 |  3.45 |
 |   LUT as Memory            |    4 |     0 |      9600 |  0.04 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |    4 |     0 |           |       |
@@ -66,14 +66,13 @@ Table of Contents
 2. Memory
 ---------
 
-+-------------------+------+-------+-----------+-------+
-|     Site Type     | Used | Fixed | Available | Util% |
-+-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |  0.5 |     0 |        50 |  1.00 |
-|   RAMB36/FIFO*    |    0 |     0 |        50 |  0.00 |
-|   RAMB18          |    1 |     0 |       100 |  1.00 |
-|     RAMB18E1 only |    1 |       |           |       |
-+-------------------+------+-------+-----------+-------+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| Block RAM Tile |    0 |     0 |        50 |  0.00 |
+|   RAMB36/FIFO* |    0 |     0 |        50 |  0.00 |
+|   RAMB18       |    0 |     0 |       100 |  0.00 |
++----------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
 
@@ -83,8 +82,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Fixed | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |    9 |     0 |        90 | 10.00 |
-|   DSP48E1 only |    9 |       |           |       |
+| DSPs           |    6 |     0 |        90 |  6.67 |
+|   DSP48E1 only |    6 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -153,18 +152,17 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |  245 |                 LUT |
-| CARRY4   |  133 |          CarryLogic |
-| LUT3     |  123 |                 LUT |
-| LUT1     |  112 |                 LUT |
-| LUT6     |   59 |                 LUT |
+| LUT1     |  242 |                 LUT |
+| LUT2     |  240 |                 LUT |
+| LUT3     |  199 |                 LUT |
+| CARRY4   |  193 |          CarryLogic |
 | FDRE     |   39 |        Flop & Latch |
-| LUT5     |   33 |                 LUT |
-| LUT4     |   29 |                 LUT |
+| LUT4     |   36 |                 LUT |
+| LUT6     |   34 |                 LUT |
+| LUT5     |   22 |                 LUT |
 | OBUF     |   15 |                  IO |
-| DSP48E1  |    9 |    Block Arithmetic |
+| DSP48E1  |    6 |    Block Arithmetic |
 | SRL16E   |    4 |  Distributed Memory |
-| RAMB18E1 |    1 |        Block Memory |
 | MUXF7    |    1 |               MuxFx |
 | IBUF     |    1 |                  IO |
 +----------+------+---------------------+

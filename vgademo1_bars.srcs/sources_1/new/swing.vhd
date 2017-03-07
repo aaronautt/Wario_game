@@ -41,17 +41,8 @@ end swing;
 
 architecture Behavioral of swing is
 
---component squart is port( 
---clock      : in std_logic;  
---data_in    : in std_logic_vector(7 downto 0); 
---data_out   : out std_logic_vector(3 downto 0));
---end component;
-
---signal data_in : std_logic_vector(7 downto 0);
---signal data_out : std_logic_vector(3 downto 0);
-
-  --signal vs : std_logic := '0';
   signal rad : integer := 25; -- radius of the ball
+  signal radiusSq : integer := 625;
   constant x_center : integer := 320; --center of the arc that the ball swings
   constant y_center : integer := 100;
   signal x_pos : integer := 320;
@@ -65,8 +56,8 @@ architecture Behavioral of swing is
   type x_int_array is array (0 to 72) of integer;
   constant x_data: x_int_array := (320, 328, 337, 345, 354, 362, 370, 377, 384, 390, 396, 401, 406, 410, 413, 416, 418, 419, 420, 419, 418, 416, 413, 410, 406, 401, 396, 390, 384, 377, 370, 362, 354, 345, 337, 328, 320, 311, 302, 294, 285, 277, 270, 262, 255, 249, 243, 238, 233, 229, 226, 223, 221, 220, 220, 220, 221, 223, 226, 229, 233, 238, 243, 249, 255, 262, 269, 277, 285, 294, 302, 311, 320);
   
-  type y_int_array is array (0 to 72) of integer;
-  constant y_data: y_int_array := (380, 378, 374, 367, 357, 344, 329, 311, 291, 268, 244, 217, 190, 160, 129, 98, 65, 33, 0, -33, -65, -98, -129, -160, -189, -217, -244, -268, -291, -311, -329, -344, -357, -367, -374, -378, -380, -378, -374, -367, -357, -344, -329, -311, -291, -268, -244, -217, -189, -160, -129, -98, -65, -33, 0, 33, 65, 98, 129, 160, 189, 217, 244, 268, 291, 311, 329, 344, 357, 367, 374, 378, 380);
+   type y_int_array is array (0 to 72) of integer;
+  constant y_data: y_int_array := (200, 199, 198, 196, 193, 190, 186, 181, 176, 170, 164, 157, 150, 142, 134, 125, 117, 108, 99, 91, 82, 74, 65, 57, 50, 42, 35, 29, 23, 18, 13, 9, 6, 3, 1, 0, 0, 0, 1, 3, 6, 9, 13, 18, 23, 29, 35, 42, 50, 57, 65, 74, 82, 91, 100, 108, 117, 125, 134, 142, 150, 157, 164, 170, 176, 181, 186, 190, 193, 196, 198, 199, 200);
   
 
   function  sqrt  ( d : UNSIGNED ) return UNSIGNED;
@@ -105,21 +96,22 @@ architecture Behavioral of swing is
       variable num : integer := 0;
       variable num1 : integer := 0;
    begin
-     if vs'event and vs = '1' then
+     if rising_edge(vs) then
        count := count + 1;
-       if count = 5 then
+       if count = 200 then
          count := 0;
          sync_count := sync_count + 1;
-         x_pos <= x_data(sync_count);
          if sync_count = 73 then
            sync_count := 0;
          end if;
        end if;
      end if;
-     num := arc_rad*arc_rad-(x_data(sync_count) - x_center)*(x_data(sync_count) - x_center);
-     num1 := TO_INTEGER(sqrt(TO_UNSIGNED(num,32)));
-     number := 100 + num1;
-     y_pos <= number;
+     x_pos <= x_data(sync_count);
+     y_pos <= y_data(sync_count);
+     --num := arc_rad*arc_rad-(x_data(sync_count) - x_center)*(x_data(sync_count) - x_center);
+     --num1 := TO_INTEGER(sqrt(TO_UNSIGNED(num,32)));
+     --number := 100 + num1;
+     --y_pos <= number;
    end process;
 
       
@@ -133,19 +125,28 @@ architecture Behavioral of swing is
 --    end process;
     
 
-  circle_draw : process(hcount, vcount, blank)
-    variable row, col : integer;
-  begin
-    row := conv_integer(vcount) - y_pos;
-    col := conv_integer(hcount) - x_pos;
+draw_circle : process(hcount,vcount,blank)       -- Procedural block for displaying the GREEN object
+    variable row : integer := 0;
+    variable col : integer := 0;
+    variable number : integer := 0;
+    variable Ecol1, Ecol2, Erow1, Erow2 : integer := 0;
+    
 
-    if (480*row-row*row+640*col-col*col)> (160000 - rad*rad) then --the circle should
-      Red <= "1010"; Green <= "1010"; Blue <= "1010";
+  begin
+    row := conv_integer(vcount);
+    col := conv_integer(hcount);
+    Ecol1 := x_pos + TO_INTEGER(sqrt(TO_UNSIGNED((radiusSq-(row-y_pos)*(row-y_pos)),32)));
+    Ecol2 := x_pos - TO_INTEGER(sqrt(TO_UNSIGNED((radiusSq-(row-y_pos)*(row-y_pos)),32)));
+    Erow1 := y_pos + TO_INTEGER(sqrt(TO_UNSIGNED((radiusSq-(col-x_pos)*(col-x_pos)),32)));
+    Erow2 := y_pos - TO_INTEGER(sqrt(TO_UNSIGNED((radiusSq-(col-x_pos)*(col-x_pos)),32)));
+
+    if(col = Ecol1 or row = Erow1 or col = Ecol2 or row = Erow2) and (blank = '0') then
+     Green <= X"F";
     else
-      Red <= "0000"; Green <= "0000"; Blue <= "0000";
+      Green <= X"0"
+               ;
     end if;
   end process;
-
 
   --x_arc : process(vs)
   --  variable count, a_count : integer := -1;

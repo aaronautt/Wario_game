@@ -106,3 +106,4 @@ S1 : swing port map (vs => VS, blank => blank, hcount => hcount, vcount => vcoun
 
 
 end Behavioral;
+
