@@ -51,14 +51,14 @@ begin
 
     if (row > 445 and blank = '0') then
       Red <= "1100"; Green <= "0011"; Blue <= "0000";
+    elsif (row >= (400 - 10)) and (row <= (400 + 10)) and (col >= (320 - 10)) and (col <= (320 + 10)) then
+      Red <= "1111"; Green <= "1111"; Blue <= "1111";
     elsif (row > 435 and row <= 445) and blank = '0' then
       Red <= "0100"; Green <= "0001"; Blue <= "0000";
     elsif (col < (320 - (row/2))) and blank = '0' then
       Red <= "0111"; Green <= "0111"; Blue <= "0000";
     elsif (col > (320 + (row/2))) and blank = '0' then
-      Red <= "0111"; Green <= "0111"; Blue <= "0000"; --(160000 - r^2)
-    --elsif  (520*row-row*row+700*col-col*col)> 159000 then --the circle should
-      --Red <= "1010"; Green <= "1010"; Blue <= "1010"; 
+      Red <= "0111"; Green <= "0111"; Blue <= "0000";
     elsif blank = '0' then
       Red <= "1111"; Green <= "1111"; Blue <= "0000";
     else

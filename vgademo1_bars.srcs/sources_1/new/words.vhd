@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 --use UNISIM.VComponents.all;
 
 entity words is
-  PORT(clk25, blank : in STD_LOGIC; hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); 
+  PORT(clk25, blank, vs : in STD_LOGIC; hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); 
        Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end words;
 
@@ -49,7 +49,6 @@ architecture Behavioral of words is
   signal ROM_DATA : STD_LOGIC_VECTOR(15 downto 0);
   signal INTENSITY : STD_LOGIC;
   signal w_count : std_logic_vector(3 downto 0) := "0000";
-  signal vs : std_logic := '0';
   constant size : integer := 16;
   constant start : integer := 208;
   signal section : std_logic;
@@ -73,12 +72,6 @@ begin
 
 
 --sparring Wario has 14 letters
-
-vsync: process(vcount)
-begin
-  if vcount = 480 then vs <= not vs;
-  end if;
-end process;
 
 
 addr_increment: process(vs)
@@ -157,15 +150,11 @@ begin
     section <= '1';
     
   elsif (vcount < 16) and (hcount > (start + 12*size)) and (hcount <= (start + 13*size)) then
-    
     ROM_ADDRESS <= "1100" & pixel_row;  -- Generating ROM address
-    section <= '1';
-    
-  elsif (vcount < 16) and (hcount > (start + 13*size)) and (hcount <= (start + 14*size)) then
-    
+    section <= '1';    
+  elsif (vcount < 16) and (hcount > (start + 13*size)) and (hcount <= (start + 14*size)) then    
     ROM_ADDRESS <= "1101" & pixel_row;  -- Generating ROM address
     section <= '1';
-    
   else
     ROM_ADDRESS <= "00000000";
     section <= '0';
@@ -190,34 +179,10 @@ begin
   end if;
 end process;
 
---color_shift : process(vs)
---  variable one, two, three, four : STD_LOGIC := '0';
---begin
---  if vs'event and vs = '1' then
---    if INTENSITY = '1' then
---      one := INTENSITY and two;
---      two := not one;
---      three := INTENSITY and four;
---      four := not three;
---    end if;
---  if blank = '0' then
---  Red <= (one & two & three & four);
---  Green <= (two & three & four & one);
---  Blue <= (three & four & one & two);
---  else 
---  Red <= X"0";
---  Green <= X"0";
---  Blue <= X"0";
---  end if;
---  end if;
---end process;
 
-
-
-
-Red <= ('0' & INTENSITY & '0' & INTENSITY) when (blank = '0') else X"0";
-Green <= (INTENSITY & '0' & INTENSITY & INTENSITY) when (blank = '0') else X"0";
-Blue <= (INTENSITY & INTENSITY & INTENSITY & '0') when (blank = '0') else X"0";
+Red <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
+Green <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
+Blue <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
 
 
 end Behavioral;

@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Mon Mar  6 23:58:38 2017
+| Date         : Tue Mar  7 23:44:23 2017
 | Host         : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command      : report_utilization -file vgademo1_bars_top_utilization_synth.rpt -pb vgademo1_bars_top_utilization_synth.pb
 | Design       : vgademo1_bars_top
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  721 |     0 |     20800 |  3.47 |
-|   LUT as Logic             |  717 |     0 |     20800 |  3.45 |
+| Slice LUTs*                | 1185 |     0 |     20800 |  5.70 |
+|   LUT as Logic             | 1181 |     0 |     20800 |  5.68 |
 |   LUT as Memory            |    4 |     0 |      9600 |  0.04 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |    4 |     0 |           |       |
-| Slice Registers            |   39 |     0 |     41600 |  0.09 |
-|   Register as Flip Flop    |   39 |     0 |     41600 |  0.09 |
+| Slice Registers            |  207 |     0 |     41600 |  0.50 |
+|   Register as Flip Flop    |  207 |     0 |     41600 |  0.50 |
 |   Register as Latch        |    0 |     0 |     41600 |  0.00 |
-| F7 Muxes                   |    1 |     0 |     16300 | <0.01 |
+| F7 Muxes                   |   50 |     0 |     16300 |  0.31 |
 | F8 Muxes                   |    0 |     0 |      8150 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 0     |          Yes |         Set |            - |
-| 39    |          Yes |       Reset |            - |
+| 12    |          Yes |         Set |            - |
+| 195   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -118,7 +118,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    0 |     0 |        32 |  0.00 |
+| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
 | BUFIO      |    0 |     0 |        20 |  0.00 |
 | MMCME2_ADV |    0 |     0 |         5 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |         5 |  0.00 |
@@ -152,19 +152,21 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT1     |  242 |                 LUT |
-| LUT2     |  240 |                 LUT |
-| LUT3     |  199 |                 LUT |
-| CARRY4   |  193 |          CarryLogic |
-| FDRE     |   39 |        Flop & Latch |
-| LUT4     |   36 |                 LUT |
-| LUT6     |   34 |                 LUT |
-| LUT5     |   22 |                 LUT |
+| LUT1     |  397 |                 LUT |
+| LUT2     |  359 |                 LUT |
+| CARRY4   |  263 |          CarryLogic |
+| LUT3     |  202 |                 LUT |
+| FDRE     |  195 |        Flop & Latch |
+| LUT6     |  177 |                 LUT |
+| LUT4     |  146 |                 LUT |
+| MUXF7    |   50 |               MuxFx |
+| LUT5     |   32 |                 LUT |
 | OBUF     |   15 |                  IO |
+| FDSE     |   12 |        Flop & Latch |
 | DSP48E1  |    6 |    Block Arithmetic |
 | SRL16E   |    4 |  Distributed Memory |
-| MUXF7    |    1 |               MuxFx |
 | IBUF     |    1 |                  IO |
+| BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
 

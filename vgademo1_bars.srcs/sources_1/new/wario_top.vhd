@@ -54,19 +54,20 @@ Port (hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); blank : in STD_LOGIC;
 end component;
 
 component merge_display is
-  Port (Red_w,Red_b, Red_s : in STD_LOGIC_VECTOR(3 downto 0);
+  Port (clk : in STD_LOGIC;
+        Red_w,Red_b, Red_s : in STD_LOGIC_VECTOR(3 downto 0);
         Green_w,Green_b, Green_s : in STD_LOGIC_VECTOR(3 downto 0);
         Blue_w,Blue_b, Blue_s : in STD_LOGIC_VECTOR(3 downto 0);
         Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
 component words is
-  PORT(clk25, blank : in STD_LOGIC; hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); 
+  PORT(clk25, blank, vs : in STD_LOGIC; hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); 
        Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
 component swing is
-  Port (vs, blank : in std_logic;
+  Port (vs, blank, clk : in std_logic;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
@@ -93,17 +94,17 @@ v1 : vga_controller_640_60 PORT MAP (pixel_clk => clk_25MHz, rst => reset, HS =>
 b1 : background PORT MAP (hcount => hcount, vcount => vcount, blank => blank,
                          Red => RED_b, Green => GREEN_b, Blue => BLUE_b);
 
-m1 : merge_display PORT MAP (Red_w => RED_w, Red_b => RED_b, Red_s => RED_s,
+m1 : merge_display PORT MAP (clk => clk_25MHz, Red_w => RED_w, Red_b => RED_b, Red_s => RED_s,
                              Green_w => GREEN_w, Green_b => GREEN_b, Green_s => GREEN_s,
                              Blue_w => BLUE_w, Blue_b => BLUE_b, Blue_s => BLUE_s, 
                              red => red, green => green, blue => blue);
 
-W1 : words PORT MAP (clk25 => clk_25MHZ, blank => blank, hcount => hcount,
+W1 : words PORT MAP (clk25 => clk_25MHZ, vs => VS, blank => blank, hcount => hcount,
                      vcount => vcount, Red => RED_w, Green => GREEN_w, Blue => BLUE_w);
 
-S1 : swing port map (vs => VS, blank => blank, hcount => hcount, vcount => vcount,
+S1 : swing port map (vs => VS, clk => clk_25MHz, blank => blank, hcount => hcount, vcount => vcount,
                      Red => RED_s, Green => GREEN_s, Blue => BLUE_S);
-
+VSYNC <= VS;
 
 end Behavioral;
 

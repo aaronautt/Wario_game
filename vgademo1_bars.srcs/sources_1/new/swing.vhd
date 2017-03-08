@@ -34,31 +34,68 @@ use IEEE.numeric_std.ALL;
 --use UNISIM.VComponents.all;
 
 entity swing is
-  Port (vs, blank : in std_logic;
+  Port (vs, blank, clk : in std_logic;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end swing;
 
 architecture Behavioral of swing is
 
-  signal rad : integer := 25; -- radius of the ball
-  signal radiusSq : integer := 625;
-  constant x_center : integer := 320; --center of the arc that the ball swings
-  constant y_center : integer := 100;
-  signal x_pos : integer := 320;
-  signal y_pos : integer := 380;
-  constant arc_rad : integer := 100;
-  constant ten_arc : integer := 38;
+  
+  signal rad_sqr : integer := 400; --radius fo 20 squared
+  signal x_pos : integer := 150;
+  signal y_pos : integer := 100;
   signal speed : integer := 5;
   signal increase : STD_LOGIC := '0'; -- flag to set whether the circle is in
-                                      -- the top or bottom half '1' is bottom
+  signal count : integer := 0;
+  signal sync_count : integer := 0;                                    -- the top or bottom half '1' is bottom
+  signal shift_count : integer := 0;
+  signal RGB : STD_LOGIC_VECTOR (11 downto 0) := "000000000000";
 
-  type x_int_array is array (0 to 72) of integer;
-  constant x_data: x_int_array := (320, 328, 337, 345, 354, 362, 370, 377, 384, 390, 396, 401, 406, 410, 413, 416, 418, 419, 420, 419, 418, 416, 413, 410, 406, 401, 396, 390, 384, 377, 370, 362, 354, 345, 337, 328, 320, 311, 302, 294, 285, 277, 270, 262, 255, 249, 243, 238, 233, 229, 226, 223, 221, 220, 220, 220, 221, 223, 226, 229, 233, 238, 243, 249, 255, 262, 269, 277, 285, 294, 302, 311, 320);
+  type x_int_array is array (0 to 360) of integer;
+  signal x_data : x_int_array := (320, 322, 325, 327, 330, 333, 335, 338, 340, 343,
+                                  346, 348, 351, 353, 356, 358, 361, 363, 366, 368,
+                                  371, 373, 376, 378, 381, 383, 385, 388, 390, 392,
+                                  395, 397, 399, 401, 403, 406, 408, 410, 412, 414,
+                                  416, 418, 420, 422, 424, 426, 427, 429, 431, 433,
+                                  434, 436, 438, 439, 441, 442, 444, 445, 447, 448,
+                                  449, 451, 452, 453, 454, 455, 457, 458, 459, 460,
+                                  460, 461, 462, 463, 464, 464, 465, 466, 466, 467,
+                                  467, 468, 468, 468, 469, 469, 469, 469, 469, 469,
+                                  470, 469, 469, 469, 469, 469, 469, 468, 468, 468,
+                                  467, 467, 466, 466, 465, 464, 464, 463, 462, 461,
+                                  460, 460, 459, 458, 457, 455, 454, 453, 452, 451,
+                                  449, 448, 447, 445, 444, 442, 441, 439, 438, 436,
+                                  434, 433, 431, 429, 427, 426, 424, 422, 420, 418,
+                                  416, 414, 412, 410, 408, 406, 403, 401, 399, 397,
+                                  395, 392, 390, 388, 385, 383, 381, 378, 376, 373,
+                                  371, 368, 366, 363, 361, 358, 356, 353, 351, 348,
+                                  346, 343, 340, 338, 335, 333, 330, 327, 325, 322,
+                                  320, 317, 314, 312, 309, 306, 304, 301, 299, 296,
+                                  293, 291, 288, 286, 283, 281, 278, 276, 273, 271,
+                                  268, 266, 263, 261, 258, 256, 254, 251, 249, 247,
+                                  245, 242, 240, 238, 236, 233, 231, 229, 227, 225,
+                                  223, 221, 219, 217, 215, 213, 212, 210, 208, 206,
+                                  205, 203, 201, 200, 198, 197, 195, 194, 192, 191,
+                                  190, 188, 187, 186, 185, 184, 182, 181, 180, 179,
+                                  179, 178, 177, 176, 175, 175, 174, 173, 173, 172,
+                                  172, 171, 171, 171, 170, 170, 170, 170, 170, 170,
+                                  170, 170, 170, 170, 170, 170, 170, 171, 171, 171,
+                                  172, 172, 173, 173, 174, 175, 175, 176, 177, 178,
+                                  179, 179, 180, 181, 182, 184, 185, 186, 187, 188,
+                                  190, 191, 192, 194, 195, 197, 198, 200, 201, 203,
+                                  205, 206, 208, 210, 212, 213, 215, 217, 219, 221,
+                                  223, 225, 227, 229, 231, 233, 236, 238, 240, 242,
+                                  244, 247, 249, 251, 254, 256, 258, 261, 263, 266,
+                                  268, 271, 273, 276, 278, 281, 283, 286, 288, 291,
+                                  293, 296, 299, 301, 304, 306, 309, 312, 314, 317, 320);
   
-   type y_int_array is array (0 to 72) of integer;
-  constant y_data: y_int_array := (200, 199, 198, 196, 193, 190, 186, 181, 176, 170, 164, 157, 150, 142, 134, 125, 117, 108, 99, 91, 82, 74, 65, 57, 50, 42, 35, 29, 23, 18, 13, 9, 6, 3, 1, 0, 0, 0, 1, 3, 6, 9, 13, 18, 23, 29, 35, 42, 50, 57, 65, 74, 82, 91, 100, 108, 117, 125, 134, 142, 150, 157, 164, 170, 176, 181, 186, 190, 193, 196, 198, 199, 200);
+  type y_int_array is array (0 to 360) of integer;
+  signal y_data : y_int_array := (400, 399, 399, 399, 399, 399, 399, 398, 398, 398, 397, 397, 396, 396, 395, 394, 394, 393, 392, 391, 390, 390, 389, 388, 387, 385, 384, 383, 382, 381, 379, 378, 377, 375, 374, 372, 371, 369, 368, 366, 364, 363, 361, 359, 357, 356, 354, 352, 350, 348, 346, 344, 342, 340, 338, 336, 333, 331, 329, 327, 325, 322, 320, 318, 315, 313, 311, 308, 306, 303, 301, 298, 296, 293, 291, 288, 286, 283, 281, 278, 276, 273, 270, 268, 265, 263, 260, 257, 255, 252, 249, 247, 244, 242, 239, 236, 234, 231, 229, 226, 223, 221, 218, 216, 213, 211, 208, 206, 203, 201, 198, 196, 193, 191, 188, 186, 184, 181, 179, 177, 175, 172, 170, 168, 166, 163, 161, 159, 157, 155, 153, 151, 149, 147, 145, 143, 142, 140, 138, 136, 135, 133, 131, 130, 128, 127, 125, 124, 122, 121, 120, 118, 117, 116, 115, 114, 112, 111, 110, 109, 109, 108, 107, 106, 105, 105, 104, 103, 103, 102, 102, 101, 101, 101, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 101, 101, 101, 102, 102, 103, 103, 104, 105, 105, 106, 107, 108, 109, 109, 110, 111, 112, 114, 115, 116, 117, 118, 120, 121, 122, 124, 125, 127, 128, 130, 131, 133, 135, 136, 138, 140, 142, 143, 145, 147, 149, 151, 153, 155, 157, 159, 161, 163, 166, 168, 170, 172, 175, 177, 179, 181, 184, 186, 188, 191, 193, 196, 198, 201, 203, 206, 208, 211, 213, 216, 218, 221, 223, 226, 229, 231, 234, 236, 239, 242, 244, 247, 250, 252, 255, 257, 260, 263, 265, 268, 270, 273, 276, 278, 281, 283, 286, 288, 291, 293, 296, 298, 301, 303, 306, 308, 311, 313, 315, 318, 320, 322, 325, 327, 329, 331, 333, 336, 338, 340, 342, 344, 346, 348, 350, 352, 354, 356, 357, 359, 361, 363, 364, 366, 368, 369, 371, 372, 374, 375, 377, 378, 379, 381, 382, 383, 384, 385, 387, 388, 389, 390, 390, 391, 392, 393, 394, 394, 395, 396, 396, 397, 397, 398, 398, 398, 399, 399, 399, 399, 399, 399, 400);
   
+
+  -- square root function written by VHDL guru, found at
+  -- http://vhdlguru.blogspot.com/2010/03/vhdl-function-for-finding-square-root.html
 
   function  sqrt  ( d : UNSIGNED ) return UNSIGNED;
   function  sqrt  ( d : UNSIGNED ) return UNSIGNED is
@@ -85,112 +122,70 @@ architecture Behavioral of swing is
     return q;
   end sqrt;
 
+begin
+
+  arc_find : process(hcount, vcount, blank, vs, x_pos, y_pos)
   begin
-
-    arc_find : process(hcount, vcount, blank, vs)
-      variable count : integer := 0;
-      variable sync_count : integer := 0;
-      variable row : integer := 0;
-      variable col : integer := 0;
-      variable number : integer := 0;
-      variable num : integer := 0;
-      variable num1 : integer := 0;
-   begin
-     if rising_edge(vs) then
-       count := count + 1;
-       if count = 200 then
-         count := 0;
-         sync_count := sync_count + 1;
-         if sync_count = 73 then
-           sync_count := 0;
-         end if;
-       end if;
-     end if;
-     x_pos <= x_data(sync_count);
-     y_pos <= y_data(sync_count);
-     --num := arc_rad*arc_rad-(x_data(sync_count) - x_center)*(x_data(sync_count) - x_center);
-     --num1 := TO_INTEGER(sqrt(TO_UNSIGNED(num,32)));
-     --number := 100 + num1;
-     --y_pos <= number;
-   end process;
-
-      
---U1 : port map squart(clock => clk, data_in => data_in, data_out => data_out);
-
---    vsync : process(hcount, vcount)
---    begin
---      if vcount = "0111100000" and hcount = "1010000000" then
---        vs <= not vs;
---      end if;
---    end process;
-    
-
-draw_circle : process(hcount,vcount,blank)       -- Procedural block for displaying the GREEN object
-    variable row : integer := 0;
-    variable col : integer := 0;
-    variable number : integer := 0;
-    variable Ecol1, Ecol2, Erow1, Erow2 : integer := 0;
-    
-
-  begin
-    row := conv_integer(vcount);
-    col := conv_integer(hcount);
-    Ecol1 := x_pos + TO_INTEGER(sqrt(TO_UNSIGNED((radiusSq-(row-y_pos)*(row-y_pos)),32)));
-    Ecol2 := x_pos - TO_INTEGER(sqrt(TO_UNSIGNED((radiusSq-(row-y_pos)*(row-y_pos)),32)));
-    Erow1 := y_pos + TO_INTEGER(sqrt(TO_UNSIGNED((radiusSq-(col-x_pos)*(col-x_pos)),32)));
-    Erow2 := y_pos - TO_INTEGER(sqrt(TO_UNSIGNED((radiusSq-(col-x_pos)*(col-x_pos)),32)));
-
-    if(col = Ecol1 or row = Erow1 or col = Ecol2 or row = Erow2) and (blank = '0') then
-     Green <= X"F";
-    else
-      Green <= X"0"
-               ;
+    if rising_edge(vs) then
+      count <= count + 1;
+      if count = 2 then
+        count <= 0;
+        x_pos <= x_data(sync_count);
+        y_pos <= y_data(sync_count);
+        sync_count <= sync_count + 1;
+        if sync_count = 360 then
+          sync_count <= 0;
+        end if;
+      end if;
     end if;
   end process;
 
-  --x_arc : process(vs)
-  --  variable count, a_count : integer := -1;
-  --begin
-  --  if vs'event and vs = '1' then
-  --   a_count := a_count + 1;
-  --   if a_count = 25 then
-  --   a_count := 0;
-  --    count := count +1;
-  --    if count = 72 then count := 0;
-  --    end if;
-  --    x_pos <= x_data(count);
-  --    y_pos <= y_data(count);
-  --    --if x_pos >= x_center and y_pos >= y_center then
-  --    --  x_pos <= x_pos + speed;
-  --    --  increase <= '1';
-  --    --elsif x_pos >= x_center and y_pos < y_center then
-  --    --  x_pos <= x_pos - speed;
-  --    --  increase <= '0';
-  --    --elsif x_pos < x_center and y_pos < y_center then
-  --    --  x_pos <= x_pos - speed;
-  --    --  increase <= '0';
-  --    --elsif x_pos < x_center and y_pos >= y_center then
-  --    --  x_pos <= x_pos + speed;
-  --    --  increase <= '1';
-  --    --end if;
-  --  end if;
-  --  end if;
-  --end process;
+      
+
+  draw_circle : process(hcount,vcount,blank, clk)       -- Procedural block for displaying the GREEN object
+    variable row : integer := 0;
+    variable col : integer := 0;
+    variable Col_1, Col_2, Row_1, Row_2 : integer := 0;
+
+  begin
+    if rising_edge(clk) then
+      row := conv_integer(vcount);
+      col := conv_integer(hcount);
+      
+      Col_1 := x_pos + TO_INTEGER(sqrt(TO_UNSIGNED((rad_sqr-(row-y_pos)*(row-y_pos)),32)));
+      Col_2 := x_pos - TO_INTEGER(sqrt(TO_UNSIGNED((rad_sqr-(row-y_pos)*(row-y_pos)),32)));
+      Row_1 := y_pos + TO_INTEGER(sqrt(TO_UNSIGNED((rad_sqr-(col-x_pos)*(col-x_pos)),32)));
+      Row_2 := y_pos - TO_INTEGER(sqrt(TO_UNSIGNED((rad_sqr-(col-x_pos)*(col-x_pos)),32)));
+     
+
+      if(col <= Col_1 and col >= Col_2 and row <= Row_1 and row >= Row_2
+         and Col_1 > Col_2 and Row_1 > Row_2 and Col_1 >= -50 and Col_1 <= 690
+         and Col_2 >= -50 and Col_2 <= 690 and Row_1 >= -50 and Row_1 <= 530
+         and Row_2 >= -50 and Row_2 <= 530) and (blank = '0') then
+        Green <= RGB(7 downto 4);
+        Blue <= RGB(3 downto 0);
+        Red <= RGB(11 downto 8);
+      else
+        Green <= X"0";
+        Blue <= X"0";
+        Red <= X"0";         
+      end if;
+    end if;
+  end process;
 
 
-      --y_arc : process(vs)
-      --begin
-      --  if x_pos <= (x_center + ten_arc) and x_pos > (x_center - ten_arc)  then 
-      --    if x_pos = (x_center + ten_arc) or x_pos = (x_center + (ten_arc/2)) then
-      --      y_pos <= y_pos - 1;
-      --    elsif x_pos = (x_center - ten_arc) or x_pos = (x_center - ten_arc/2) then
-      --      y_pos <= y_pos  + 1;
-      --    end if;
-      --  elsif x_pos <= (x_center + 2*ten_arc) and x_pos > (x_center + ten_arc)then
+color_shift : process(vs)
+begin
+  if rising_edge(vs) then
+    shift_count <= shift_count + 1;
+    if shift_count = 50 then
+      shift_count <= 0;
+      RGB <= RGB + 1;
+      if RGB = "111111111111" then
+        RGB <= "000000000000";
+      end if;
+    end if;
+  end if;
+end process;
 
-
---x look ups
---[320, 353, 385, 418, 449, 480, 510, 537, 564, 588, 611, 631, 649, 664, 677, 687, 694, 698, 700, 698, 694, 687, 677, 664, 649, 631, 611, 588, 564, 537, 510, 480, 449, 418, 385, 353, 320, 286, 254, 221, 190, 159, 130, 102, 75, 51, 28, 8, -9, -24, -37, -47, -54, -58, -60, -58, -54, -47, -37, -24, -9, 8, 28, 51, 75, 102, 129, 159, 190, 221, 254, 286, 319]
---y look ups
---[380, 378, 374, 367, 357, 344, 329, 311, 291, 268, 244, 217, 190, 160, 129, 98, 65, 33, 0, -33, -65, -98, -129, -160, -189, -217, -244, -268, -291, -311, -329, -344, -357, -367, -374, -378, -380, -378, -374, -367, -357, -344, -329, -311, -291, -268, -244, -217, -189, -160, -129, -98, -65, -33, 0, 33, 65, 98, 129, 160, 189, 217, 244, 268, 291, 311, 329, 344, 357, 367, 374, 378]
 end Behavioral;
