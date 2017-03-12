@@ -51,8 +51,8 @@ begin
 
     if (row > 445 and blank = '0') then
       Red <= "1100"; Green <= "0011"; Blue <= "0000";
-    elsif (row >= (400 - 10)) and (row <= (400 + 10)) and (col >= (320 - 10)) and (col <= (320 + 10)) then
-      Red <= "1111"; Green <= "1111"; Blue <= "1111";
+    elsif (row >= (400 - 10)) and (row <= (400 + 10)) and (col >= (300 - 10)) and (col <= (300 + 10)) then
+      Red <= "0000"; Green <= "0000"; Blue <= "0000";
     elsif (row > 435 and row <= 445) and blank = '0' then
       Red <= "0100"; Green <= "0001"; Blue <= "0000";
     elsif (col < (320 - (row/2))) and blank = '0' then

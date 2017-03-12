@@ -43,14 +43,21 @@ architecture Behavioral of swing is
 
   
   signal rad_sqr : integer := 400; --radius fo 20 squared
+  signal rad : integer := 20;
+  signal fist : integer := 330;
   signal x_pos : integer := 150;
   signal y_pos : integer := 100;
-  signal speed : integer := 5;
-  signal increase : STD_LOGIC := '0'; -- flag to set whether the circle is in
+  signal speed : integer := 1; --speed variable, higher is slower
+  signal increase : STD_LOGIC := '1'; -- flag to set whether the circle is
+                                      -- moving CCW=1 or CW=0
   signal count : integer := 0;
-  signal sync_count : integer := 0;                                    -- the top or bottom half '1' is bottom
+  signal punch : integer := 3;-- counting which punch it's on punch 1 = 3, then
+                              -- down from there punch 3 = 1
+  signal sync_count : integer := 0;                                    
   signal shift_count : integer := 0;
   signal RGB : STD_LOGIC_VECTOR (11 downto 0) := "000000000000";
+  signal collide : STD_LOGIC := '0';
+
 
   type x_int_array is array (0 to 360) of integer;
   signal x_data : x_int_array := (320, 322, 325, 327, 330, 333, 335, 338, 340, 343,
@@ -91,7 +98,11 @@ architecture Behavioral of swing is
                                   293, 296, 299, 301, 304, 306, 309, 312, 314, 317, 320);
   
   type y_int_array is array (0 to 360) of integer;
-  signal y_data : y_int_array := (400, 399, 399, 399, 399, 399, 399, 398, 398, 398, 397, 397, 396, 396, 395, 394, 394, 393, 392, 391, 390, 390, 389, 388, 387, 385, 384, 383, 382, 381, 379, 378, 377, 375, 374, 372, 371, 369, 368, 366, 364, 363, 361, 359, 357, 356, 354, 352, 350, 348, 346, 344, 342, 340, 338, 336, 333, 331, 329, 327, 325, 322, 320, 318, 315, 313, 311, 308, 306, 303, 301, 298, 296, 293, 291, 288, 286, 283, 281, 278, 276, 273, 270, 268, 265, 263, 260, 257, 255, 252, 249, 247, 244, 242, 239, 236, 234, 231, 229, 226, 223, 221, 218, 216, 213, 211, 208, 206, 203, 201, 198, 196, 193, 191, 188, 186, 184, 181, 179, 177, 175, 172, 170, 168, 166, 163, 161, 159, 157, 155, 153, 151, 149, 147, 145, 143, 142, 140, 138, 136, 135, 133, 131, 130, 128, 127, 125, 124, 122, 121, 120, 118, 117, 116, 115, 114, 112, 111, 110, 109, 109, 108, 107, 106, 105, 105, 104, 103, 103, 102, 102, 101, 101, 101, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 101, 101, 101, 102, 102, 103, 103, 104, 105, 105, 106, 107, 108, 109, 109, 110, 111, 112, 114, 115, 116, 117, 118, 120, 121, 122, 124, 125, 127, 128, 130, 131, 133, 135, 136, 138, 140, 142, 143, 145, 147, 149, 151, 153, 155, 157, 159, 161, 163, 166, 168, 170, 172, 175, 177, 179, 181, 184, 186, 188, 191, 193, 196, 198, 201, 203, 206, 208, 211, 213, 216, 218, 221, 223, 226, 229, 231, 234, 236, 239, 242, 244, 247, 250, 252, 255, 257, 260, 263, 265, 268, 270, 273, 276, 278, 281, 283, 286, 288, 291, 293, 296, 298, 301, 303, 306, 308, 311, 313, 315, 318, 320, 322, 325, 327, 329, 331, 333, 336, 338, 340, 342, 344, 346, 348, 350, 352, 354, 356, 357, 359, 361, 363, 364, 366, 368, 369, 371, 372, 374, 375, 377, 378, 379, 381, 382, 383, 384, 385, 387, 388, 389, 390, 390, 391, 392, 393, 394, 394, 395, 396, 396, 397, 397, 398, 398, 398, 399, 399, 399, 399, 399, 399, 400);
+  signal y_data : y_int_array := (400, 399, 399, 399, 399, 399, 399, 398, 398, 398,
+                                  397, 397, 396, 396, 395, 394, 394, 393, 392, 391,
+                                  390, 390, 389, 388, 387, 385, 384, 383, 382, 381,
+                                  379, 378, 377, 375, 374, 372, 371, 369, 368, 366,
+                                  364, 363, 361, 359, 357, 356, 354, 352, 350, 348, 346, 344, 342, 340, 338, 336, 333, 331, 329, 327, 325, 322, 320, 318, 315, 313, 311, 308, 306, 303, 301, 298, 296, 293, 291, 288, 286, 283, 281, 278, 276, 273, 270, 268, 265, 263, 260, 257, 255, 252, 249, 247, 244, 242, 239, 236, 234, 231, 229, 226, 223, 221, 218, 216, 213, 211, 208, 206, 203, 201, 198, 196, 193, 191, 188, 186, 184, 181, 179, 177, 175, 172, 170, 168, 166, 163, 161, 159, 157, 155, 153, 151, 149, 147, 145, 143, 142, 140, 138, 136, 135, 133, 131, 130, 128, 127, 125, 124, 122, 121, 120, 118, 117, 116, 115, 114, 112, 111, 110, 109, 109, 108, 107, 106, 105, 105, 104, 103, 103, 102, 102, 101, 101, 101, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 101, 101, 101, 102, 102, 103, 103, 104, 105, 105, 106, 107, 108, 109, 109, 110, 111, 112, 114, 115, 116, 117, 118, 120, 121, 122, 124, 125, 127, 128, 130, 131, 133, 135, 136, 138, 140, 142, 143, 145, 147, 149, 151, 153, 155, 157, 159, 161, 163, 166, 168, 170, 172, 175, 177, 179, 181, 184, 186, 188, 191, 193, 196, 198, 201, 203, 206, 208, 211, 213, 216, 218, 221, 223, 226, 229, 231, 234, 236, 239, 242, 244, 247, 250, 252, 255, 257, 260, 263, 265, 268, 270, 273, 276, 278, 281, 283, 286, 288, 291, 293, 296, 298, 301, 303, 306, 308, 311, 313, 315, 318, 320, 322, 325, 327, 329, 331, 333, 336, 338, 340, 342, 344, 346, 348, 350, 352, 354, 356, 357, 359, 361, 363, 364, 366, 368, 369, 371, 372, 374, 375, 377, 378, 379, 381, 382, 383, 384, 385, 387, 388, 389, 390, 390, 391, 392, 393, 394, 394, 395, 396, 396, 397, 397, 398, 398, 398, 399, 399, 399, 399, 399, 399, 400);
   
 
   -- square root function written by VHDL guru, found at
@@ -124,15 +135,85 @@ architecture Behavioral of swing is
 
 begin
 
-  arc_find : process(hcount, vcount, blank, vs, x_pos, y_pos)
+  -- This block defines when a collision event happens and when the arc ends
+  -- and reverses for each punch strength
+
+  collision : process(clk)
   begin
-    if rising_edge(vs) then
+    if rising_edge(clk) then
+      if y_pos > 350 and increase = '0' and x_pos <= 322 and x_pos >= 320 then
+        collide <= '1';
+        increase <= '1';
+        speed <= 1;
+      elsif y_pos > 350 and increase = '1' and x_pos <= 280 and x_pos >= 260 then
+        collide <= '1';
+        increase <= '0';
+        speed <= 1;
+      else
+        collide <= '0';
+      end if;
+
+      -- this section defines how far up the ball moves based on which punch
+      if punch = 3 then -- first punch
+        if sync_count = 90 then
+          increase <= '0';
+        end if;
+      elsif punch = 2 then -- second punch
+        if sync_count = 110 then
+          increase <= '0';
+        end if;
+      elsif punch = 1 then -- third punch
+        if sync_count = 130 then
+          increase <= '0';
+        end if;
+        --elsif punch = 0 then -- final punch, which will end in an explosion or
+                             -- something eventually
+        
+      end if;
+    end if;
+  end process;
+
+-- This process just increments the punch that it's on if a collision occurs
+
+  punch_proc : process(clk)
+  begin
+    if rising_edge(clk) then
+      if collide = '1' and punch = 3 then -- if successful punch move to next
+        punch <= 2;
+      elsif
+        collide = '1' and punch = 2 then
+        punch <= 1;
+      elsif collide = '1' and punch = 1 then
+        punch <= 0;
+      elsif punch = 0 then-- this needs to be removed
+        punch <= 3;
+      else
+        punch <= punch;
+      end if;
+    end if;
+  end process;
+
+
+  -- this block should set the speed change of the ball as it swings
+  -- The count will increase slightly each sync_count, and the punch
+  -- multiplication will increase the speed as the punches continue
+  --
+
+
+  arc_find : process(hcount, vcount, blank, vs, increase, collide, x_pos, y_pos, clk)
+  begin
+    if rising_edge(clk) then
       count <= count + 1;
-      if count = 2 then
+      if count = 100000+(punch*50000)+(sync_count*5000) then 
         count <= 0;
         x_pos <= x_data(sync_count);
         y_pos <= y_data(sync_count);
-        sync_count <= sync_count + 1;
+        if increase = '1' then
+          sync_count <= sync_count + 1;
+        elsif increase = '0' then
+          sync_count <= sync_count - 1;
+        end if;
+
         if sync_count = 360 then
           sync_count <= 0;
         end if;
@@ -142,7 +223,7 @@ begin
 
       
 
-  draw_circle : process(hcount,vcount,blank, clk)       -- Procedural block for displaying the GREEN object
+  draw_circle : process(hcount,vcount,blank, clk, collide)       -- Procedural block for displaying the GREEN object
     variable row : integer := 0;
     variable col : integer := 0;
     variable Col_1, Col_2, Row_1, Row_2 : integer := 0;
@@ -162,9 +243,16 @@ begin
          and Col_1 > Col_2 and Row_1 > Row_2 and Col_1 >= -50 and Col_1 <= 690
          and Col_2 >= -50 and Col_2 <= 690 and Row_1 >= -50 and Row_1 <= 530
          and Row_2 >= -50 and Row_2 <= 530) and (blank = '0') then
-        Green <= RGB(7 downto 4);
-        Blue <= RGB(3 downto 0);
-        Red <= RGB(11 downto 8);
+        if collide = '0' then
+          Green <= X"1";--RGB(11) & RGB(8) & RGB(5) & RGB(2);
+          Blue <= X"2";--RGB(10) & RGB(7) & RGB(4) & RGB(1);
+          Red <= X"F";--RGB(9) & RGB(6) & RGB(3) & RGB(0);
+        elsif collide = '1' then
+          Green <= X"1";
+          Blue <= X"0";
+          Red <= X"0";
+        end if;
+
       else
         Green <= X"0";
         Blue <= X"0";
@@ -174,18 +262,25 @@ begin
   end process;
 
 
-color_shift : process(vs)
-begin
-  if rising_edge(vs) then
-    shift_count <= shift_count + 1;
-    if shift_count = 50 then
-      shift_count <= 0;
-      RGB <= RGB + 1;
-      if RGB = "111111111111" then
-        RGB <= "000000000000";
+  color_shift : process(vs)
+    variable up : STD_LOGIC := '0';
+  begin
+    if rising_edge(vs) then
+      shift_count <= shift_count + 1;
+      if shift_count = 50 then
+        shift_count <= 0;
+        if up = '0' then
+          RGB <= RGB + 1;
+        elsif up = '1' then
+          RGB <= RGB - 1;
+        end if;
+        if RGB = "111111111111" then
+          up := '1';
+        elsif RGB = "000000101001" then
+          up := '0';
+        end if;
       end if;
     end if;
-  end if;
-end process;
+  end process;
 
 end Behavioral;

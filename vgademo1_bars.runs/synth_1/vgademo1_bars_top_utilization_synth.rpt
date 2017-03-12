@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Tue Mar  7 23:44:23 2017
+| Date         : Sat Mar 11 21:47:27 2017
 | Host         : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command      : report_utilization -file vgademo1_bars_top_utilization_synth.rpt -pb vgademo1_bars_top_utilization_synth.pb
 | Design       : vgademo1_bars_top
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 1185 |     0 |     20800 |  5.70 |
-|   LUT as Logic             | 1181 |     0 |     20800 |  5.68 |
+| Slice LUTs*                | 1265 |     0 |     20800 |  6.08 |
+|   LUT as Logic             | 1261 |     0 |     20800 |  6.06 |
 |   LUT as Memory            |    4 |     0 |      9600 |  0.04 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |    4 |     0 |           |       |
-| Slice Registers            |  207 |     0 |     41600 |  0.50 |
-|   Register as Flip Flop    |  207 |     0 |     41600 |  0.50 |
+| Slice Registers            |  154 |     0 |     41600 |  0.37 |
+|   Register as Flip Flop    |  154 |     0 |     41600 |  0.37 |
 |   Register as Latch        |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                   |   50 |     0 |     16300 |  0.31 |
 | F8 Muxes                   |    0 |     0 |      8150 |  0.00 |
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 12    |          Yes |         Set |            - |
-| 195   |          Yes |       Reset |            - |
+| 0     |          Yes |         Set |            - |
+| 154   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -118,7 +118,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
+| BUFGCTRL   |    0 |     0 |        32 |  0.00 |
 | BUFIO      |    0 |     0 |        20 |  0.00 |
 | MMCME2_ADV |    0 |     0 |         5 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |         5 |  0.00 |
@@ -152,21 +152,19 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT1     |  397 |                 LUT |
-| LUT2     |  359 |                 LUT |
-| CARRY4   |  263 |          CarryLogic |
-| LUT3     |  202 |                 LUT |
-| FDRE     |  195 |        Flop & Latch |
-| LUT6     |  177 |                 LUT |
-| LUT4     |  146 |                 LUT |
+| LUT2     |  477 |                 LUT |
+| LUT1     |  351 |                 LUT |
+| CARRY4   |  292 |          CarryLogic |
+| LUT3     |  227 |                 LUT |
+| LUT6     |  183 |                 LUT |
+| LUT4     |  165 |                 LUT |
+| FDRE     |  154 |        Flop & Latch |
 | MUXF7    |   50 |               MuxFx |
-| LUT5     |   32 |                 LUT |
+| LUT5     |   38 |                 LUT |
 | OBUF     |   15 |                  IO |
-| FDSE     |   12 |        Flop & Latch |
 | DSP48E1  |    6 |    Block Arithmetic |
 | SRL16E   |    4 |  Distributed Memory |
 | IBUF     |    1 |                  IO |
-| BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
 
