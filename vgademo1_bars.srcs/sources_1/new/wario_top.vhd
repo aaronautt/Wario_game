@@ -67,24 +67,28 @@ component words is
 end component;
 
 component swing is
-  Port (vs, blank, clk : in std_logic;
+  Port (vs, blank, clk, btn_press : in std_logic;
+        collide : out std_logic;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
-component debouncer is
-  port(clk : in std_logic;
-       btn_in : in std_logic;
-       btn_out : out std_logic);
+component Wario_logic is
+  Port (btn, clk, vs, collide : in std_logic;
+        btn_press : out std_logic;
+        speed, punch : out integer;
+        hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
+        Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
 
-signal clk_25MHz, blank, VS, btn_out : STD_LOGIC;
+signal clk_25MHz, blank, VS, btn_out, btn_press, collide : STD_LOGIC;
 signal hcount,vcount : STD_LOGIC_VECTOR(10 downto 0);
 signal RED_w,GREEN_w,BLUE_w : STD_LOGIC_VECTOR(3 downto 0);
 signal RED_b,GREEN_b,BLUE_b : STD_LOGIC_VECTOR(3 downto 0);
 signal RED_s,GREEN_s,BLUE_s : STD_LOGIC_VECTOR(3 downto 0);
---signal RED_g,GREEN_g,BLUE_g : STD_LOGIC_VECTOR(3 downto 0);
+signal speed, punch : integer;
+signal RED_l,GREEN_l,BLUE_l : STD_LOGIC_VECTOR(3 downto 0);
 --signal RED_t,GREEN_t,BLUE_t : STD_LOGIC_VECTOR(3 downto 0);
 
 
@@ -110,9 +114,12 @@ W1 : words PORT MAP (clk25 => clk_25MHZ, vs => VS, blank => blank, hcount => hco
                      vcount => vcount, Red => RED_w, Green => GREEN_w, Blue => BLUE_w);
 
 S1 : swing port map (vs => VS, clk => clk_25MHz, blank => blank, hcount => hcount, vcount => vcount,
-                     Red => RED_s, Green => GREEN_s, Blue => BLUE_S);
+                     Red => RED_s, Green => GREEN_s, Blue => BLUE_s, collide => collide,
+                     btn_press => btn_press);
 
-D1 : debouncer port map (clk => clk_25MHz, btn_in => btn_in, btn_out => btn_out);
+W2 : Wario_logic port map (btn => btn_in, clk => clk_25MHz, vs => VS, speed => speed,
+                           punch => punch, hcount => hcount, vcount => vcount, btn_press => btn_press,
+                           Red => RED_l, Green => GREEN_l, Blue => BLUE_l, collide => collide);
 
 VSYNC <= VS;
 
