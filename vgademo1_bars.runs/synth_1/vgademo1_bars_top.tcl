@@ -22,8 +22,10 @@ set_property used_in_implementation false [get_files /home/aaron/school/EGR426/W
 add_files -quiet /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp
 set_property used_in_implementation false [get_files /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.dcp]
 read_vhdl -library xil_defaultlib {
-  /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd
+  /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd
+  /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd
+  /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/merge.vhd
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd

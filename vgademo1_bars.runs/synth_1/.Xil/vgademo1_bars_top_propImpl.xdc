@@ -33,3 +33,7 @@ set_property src_info {type:XDC file:1 line:33 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN U18 [get_ports reset]
 set_property src_info {type:XDC file:1 line:34 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN U16 [get_ports locked]
+set_property src_info {type:XDC file:1 line:37 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN W19 [get_ports btn_in]
+set_property src_info {type:XDC file:1 line:39 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN V19 [get_ports LED]

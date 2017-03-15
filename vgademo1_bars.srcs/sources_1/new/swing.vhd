@@ -35,7 +35,9 @@ use IEEE.numeric_std.ALL;
 
 entity swing is
   Port (vs, blank, clk, btn_press : in std_logic;
-        collide : out std_logic;
+        LED : out std_logic;
+        punch : in integer;
+        collide : out STD_LOGIC_VECTOR (1 downto 0);
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end swing;
@@ -50,14 +52,15 @@ architecture Behavioral of swing is
   signal y_pos : integer := 100;
   signal speed : integer := 1; --speed variable, higher is slower
   signal increase : STD_LOGIC := '1'; -- flag to set whether the circle is
-                                      -- moving CCW=1 or CW=0
+                        
+  signal collide_temp : std_logic_vector (1 downto 0);                                    -- moving CCW=1 or CW=0
   signal count : integer := 0;
-  signal punch : integer := 3;-- counting which punch it's on punch 1 = 3, then
+--  signal punch : integer := 3;-- counting which punch it's on punch 1 = 3, then
                               -- down from there punch 3 = 1
   signal sync_count : integer := 0;                                    
   signal shift_count : integer := 0;
   signal RGB : STD_LOGIC_VECTOR (11 downto 0) := "000000000000";
-  signal collision_zone : STD_LOGIC := '0';
+  signal collision_zone : STD_LOGIC_VECTOR (1 downto 0) := "00";
 
 
   type x_int_array is array (0 to 360) of integer;
@@ -136,27 +139,42 @@ architecture Behavioral of swing is
 
 begin
 
-
-  collide : process(clk)
+  process(btn_press)
   begin
-    if rising_edge(clk)
-    if collision_zone = '1' and btn_press = '1' then
-      collide <= '1';
-    else collide <= '0';
+    if btn_press = '1' then
+      LED <= '1';
+    else LED <= '0';
+    end if;
+  end process;
+
+--collide_temp <= collide;
+
+  collide_proc : process(clk)
+  begin
+    if rising_edge(clk) then
+    if (collision_zone = "01" or collision_zone = "10") and btn_press = '1' then
+      collide <= "01";
+    elsif collision_zone = "10" and btn_press = '0' then 
+      collide <= "00";
+    else collide <= "10";
     end if;
   end if;
 end process;
 
   -- This block defines when a collision event happens and when the arc ends
-  -- and reverses for each punch strength
+  -- and reverses for each punch strength. Collision zones are the 4 pixels in
+  -- front of the fist. If the button hasn't been pressed by the time it
+  -- reaches the pixel where sync_count = 0, then they miss.
 
-  collision_zone : process(clk)
+  collision_zone_proc : process(clk)
   begin
     if rising_edge(clk) then
-      if y_pos > 350 and increase = '0' and x_pos <= 322 and x_pos >= 320 then
-        collision_zone <= '1';
+      if sync_count = 1 or sync_count = 2 or sync_count = 3 then
+        collision_zone <= "01";
+      elsif sync_count = 0 then
+        collision_zone <= "10";
       else
-        collision_zone <= '0';
+        collision_zone <= "00";
       end if;
 
       -- this section defines how far up the ball moves based on which punch
@@ -169,6 +187,7 @@ end process;
         increase <= '1';
       elsif punch = 1 then -- final punch, what to do here
         increase <= '1';
+        else increase <= '1';
        
       --elsif punch = 0 then -- final punch, which will end in an explosion or
       -- something eventually
@@ -203,16 +222,12 @@ end process;
   --
 
 
-  arc_find : process(hcount, vcount, blank, vs, increase, collision_zone, x_pos, y_pos, clk)
+  arc_find : process(hcount, vcount, punch, blank, vs, increase, collision_zone, x_pos, y_pos, clk)
   begin
     if rising_edge(clk) then
       count <= count + 1;
-      if punch = 10 then -- before punching starts, the ball hangs
-        count <= 0;
-        x_pos <= x_data(0);
-        y_pos <= y_data(0);
-      elsif punch = 8 or punch = 7 or punch = 6 or punch = 5 or punch = 4
-        or punch = 3 or punch = 2 then
+      -- if punch = 8 or punch = 7 or punch = 6 or punch = 5 or punch = 4
+      --   or punch = 3 or punch = 2 then
         if count = 100000+(punch*50000)+(sync_count*5000) then 
           count <= 0;
           x_pos <= x_data(sync_count);
@@ -222,18 +237,22 @@ end process;
           elsif increase = '0' then
             sync_count <= sync_count - 1;
           end if;
-        elsif punch = 1 then
-          if count = 300000 then
-            count <= 0
-            sync_count = sync_count + 1;
-            x_pos <= x_data(sync_count);
-            y_pos <= y_data(sync_count);
-          end if;
-        else
-          count <= 0;
-          x_pos <= x_data(0);
-          y_pos <= y_data(0);
-        end if;
+        -- elsif punch = 1 then
+        --   if count = 300000 then
+        --     count <= 0;
+        --     sync_count <= sync_count + 1;
+        --     x_pos <= x_data(sync_count);
+        --     y_pos <= y_data(sync_count);
+        --   end if;
+        -- elsif punch = 10 then -- before punching starts, the ball hangs
+        --   count <= 0;
+        --   x_pos <= x_data(0);
+        --   y_pos <= y_data(0);
+        -- else
+        --   count <= 0;
+        --   x_pos <= x_data(0);
+        --   y_pos <= y_data(0);
+        -- end if;
         if sync_count = 360 then
           sync_count <= 0;
         end if;
@@ -263,15 +282,15 @@ end process;
          and Col_1 > Col_2 and Row_1 > Row_2 and Col_1 >= -50 and Col_1 <= 690
          and Col_2 >= -50 and Col_2 <= 690 and Row_1 >= -50 and Row_1 <= 530
          and Row_2 >= -50 and Row_2 <= 530) and (blank = '0') then
-        if collision_zone = '0' then
+--        if collide_temp = "10" then
           Green <= X"1";--RGB(11) & RGB(8) & RGB(5) & RGB(2);
           Blue <= X"2";--RGB(10) & RGB(7) & RGB(4) & RGB(1);
           Red <= X"F";--RGB(9) & RGB(6) & RGB(3) & RGB(0);
-        elsif collision_zone = '1' then
-          Green <= X"1";
-          Blue <= X"0";
-          Red <= X"0";
-        end if;
+        -- elsif collide_temp = "01" then
+        --   Green <= X"1";
+        --   Blue <= X"0";
+        --   Red <= X"0";
+        -- end if;
 
       else
         Green <= X"0";

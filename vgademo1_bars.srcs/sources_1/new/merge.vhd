@@ -32,9 +32,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity merge_display is
   Port (clk : in STD_LOGIC;
-        Red_w,Red_b,Red_s : in STD_LOGIC_VECTOR(3 downto 0);
-        Green_w,Green_b,Green_s : in STD_LOGIC_VECTOR(3 downto 0);
-        Blue_w,Blue_b,Blue_s : in STD_LOGIC_VECTOR(3 downto 0);
+        Red_w,Red_b,Red_s,Red_l : in STD_LOGIC_VECTOR(3 downto 0);
+        Green_w,Green_b,Green_s,Green_l : in STD_LOGIC_VECTOR(3 downto 0);
+        Blue_w,Blue_b,Blue_s,Blue_l : in STD_LOGIC_VECTOR(3 downto 0);
         RED, GREEN, BLUE : out STD_LOGIC_VECTOR(3 downto 0));
 end merge_display;
 

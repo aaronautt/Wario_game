@@ -30,7 +30,7 @@ end debouncer;
 
 architecture Behavioral of debouncer is
 signal latch : std_logic := '0'; -- latch signal for double verification of button press
-signal DB_count : std_logic_vector (15 downto 0) := "0000000000000000";
+signal DB_count : std_logic_vector (12 downto 0) := "0000000000000";
 
 begin
     process(btn_in, clk) -- counts up to 65535 on 25MHz clock cycles, if 0 detected it resets
@@ -38,13 +38,13 @@ begin
         if rising_edge(clk) then
             if btn_in = '1' and latch = '0' then
                 DB_count <= DB_count + 1;
-                if DB_count = "1111111111111111" and btn_in = '1' then 
+                if DB_count = "1111111111111" and btn_in = '1' then 
                 latch <= '1';
-                DB_count <= "0000000000000000";
+                DB_count <= "0000000000000";
                 end if;
             elsif btn_in = '0' then
                 latch <= '0';
-                DB_count <= "0000000000000000";
+                DB_count <= "0000000000000";
             else null;
             end if;
          end if;

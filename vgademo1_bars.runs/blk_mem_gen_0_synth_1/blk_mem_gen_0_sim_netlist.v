@@ -1,7 +1,7 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-// Date        : Sun Mar  5 13:51:26 2017
+// Date        : Mon Mar 13 17:07:36 2017
 // Host        : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/blk_mem_gen_0_synth_1/blk_mem_gen_0_sim_netlist.v

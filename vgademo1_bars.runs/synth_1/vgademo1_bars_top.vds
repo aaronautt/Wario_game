@@ -2,8 +2,8 @@
 # Vivado v2016.3 (64-bit)
 # SW Build 1682563 on Mon Oct 10 19:07:26 MDT 2016
 # IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
-# Start of session at: Sat Mar 11 21:46:18 2017
-# Process ID: 12815
+# Start of session at: Tue Mar 14 22:14:08 2017
+# Process ID: 11418
 # Current directory: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1
 # Command line: vivado -log vgademo1_bars_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source vgademo1_bars_top.tcl
 # Log file: /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/vgademo1_bars_top.vds
@@ -14,43 +14,134 @@ Command: synth_design -top vgademo1_bars_top -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/blk_mem_gen_0/blk_mem_gen_0.dcp]
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/blk_mem_gen_0/blk_mem_gen_0.dcp]
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/blk_mem_gen_0/blk_mem_gen_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/blk_mem_gen_0/blk_mem_gen_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 12854 
+INFO: Helper process launched with PID 11425 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1057.125 ; gain = 146.301 ; free physical = 1288 ; free virtual = 6107
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1057.125 ; gain = 146.301 ; free physical = 1032 ; free virtual = 7841
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'vgademo1_bars_top' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:40]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'c1' of component 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:87]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'vga_controller_640_60' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:75' bound to instance 'v1' of component 'vga_controller_640_60' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:90]
+INFO: [Synth 8-638] synthesizing module 'vgademo1_bars_top' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:41]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'c1' of component 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/realtime/clk_wiz_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'vga_controller_640_60' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:75' bound to instance 'v1' of component 'vga_controller_640_60' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:106]
 INFO: [Synth 8-638] synthesizing module 'vga_controller_640_60' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:88]
 INFO: [Synth 8-256] done synthesizing module 'vga_controller_640_60' (1#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/vga_controller_640_60.vhd:88]
-INFO: [Synth 8-3491] module 'background' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:36' bound to instance 'b1' of component 'background' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:94]
+INFO: [Synth 8-3491] module 'background' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:36' bound to instance 'b1' of component 'background' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:110]
 INFO: [Synth 8-638] synthesizing module 'background' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'background' (2#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:41]
-INFO: [Synth 8-3491] module 'merge_display' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/merge.vhd:33' bound to instance 'm1' of component 'merge_display' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:97]
+INFO: [Synth 8-3491] module 'merge_display' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/merge.vhd:33' bound to instance 'm1' of component 'merge_display' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:113]
 INFO: [Synth 8-638] synthesizing module 'merge_display' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/merge.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'merge_display' (3#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/merge.vhd:41]
-INFO: [Synth 8-3491] module 'words' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:36' bound to instance 'W1' of component 'words' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:102]
+INFO: [Synth 8-3491] module 'words' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:36' bound to instance 'W1' of component 'words' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:119]
 INFO: [Synth 8-638] synthesizing module 'words' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:43]
 WARNING: [Synth 8-5640] Port 'wea' is missing in component declaration [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:57]
 WARNING: [Synth 8-5640] Port 'dina' is missing in component declaration [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:57]
-INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/realtime/blk_mem_gen_0_stub.vhdl:5' bound to instance 'rom' of component 'blk_mem_gen_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:68]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/realtime/blk_mem_gen_0_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/realtime/blk_mem_gen_0_stub.vhdl:5' bound to instance 'rom' of component 'blk_mem_gen_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:68]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/realtime/blk_mem_gen_0_stub.vhdl:16]
 INFO: [Synth 8-256] done synthesizing module 'words' (4#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:43]
-INFO: [Synth 8-3491] module 'swing' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:36' bound to instance 'S1' of component 'swing' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:105]
-INFO: [Synth 8-638] synthesizing module 'swing' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:42]
-INFO: [Synth 8-256] done synthesizing module 'swing' (5#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:42]
-WARNING: [Synth 8-3848] Net VS in module/entity vgademo1_bars_top does not have driver. [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:75]
-INFO: [Synth 8-256] done synthesizing module 'vgademo1_bars_top' (6#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:40]
+INFO: [Synth 8-3491] module 'swing' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:36' bound to instance 'S1' of component 'swing' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:122]
+INFO: [Synth 8-638] synthesizing module 'swing' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'swing' (5#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:45]
+INFO: [Synth 8-3491] module 'Wario_logic' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:36' bound to instance 'W2' of component 'Wario_logic' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:126]
+INFO: [Synth 8-638] synthesizing module 'Wario_logic' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:45]
+INFO: [Synth 8-3491] module 'debouncer' declared at '/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd:25' bound to instance 'D1' of component 'debouncer' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'debouncer' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd:31]
+INFO: [Synth 8-256] done synthesizing module 'debouncer' (6#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd:31]
+WARNING: [Synth 8-3848] Net speed in module/entity Wario_logic does not have driver. [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:39]
+WARNING: [Synth 8-3848] Net Red in module/entity Wario_logic does not have driver. [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:42]
+WARNING: [Synth 8-3848] Net Green in module/entity Wario_logic does not have driver. [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:42]
+WARNING: [Synth 8-3848] Net Blue in module/entity Wario_logic does not have driver. [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'Wario_logic' (7#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:45]
+WARNING: [Synth 8-3848] Net VS in module/entity vgademo1_bars_top does not have driver. [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:89]
+INFO: [Synth 8-256] done synthesizing module 'vgademo1_bars_top' (8#1) [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:41]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[31]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[30]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[29]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[28]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[27]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[26]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[25]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[24]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[23]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[22]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[21]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[20]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[19]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[18]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[17]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[16]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[15]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[14]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[13]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[12]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[11]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[10]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[9]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[8]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[7]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[6]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[5]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[4]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[3]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[2]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[1]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[0]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Red[3]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Red[2]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Red[1]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Red[0]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Green[3]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Green[2]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Green[1]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Green[0]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Blue[3]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Blue[2]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Blue[1]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port Blue[0]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vs
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port collide[1]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port collide[0]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[10]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[9]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[8]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[7]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[6]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[5]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[4]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[3]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[2]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[1]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port hcount[0]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[10]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[9]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[8]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[7]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[6]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[5]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[4]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[3]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[2]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[1]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port vcount[0]
 WARNING: [Synth 8-3331] design swing has unconnected port vs
 WARNING: [Synth 8-3331] design words has unconnected port vs
+WARNING: [Synth 8-3331] design merge_display has unconnected port Red_l[3]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Red_l[2]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Red_l[1]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Red_l[0]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Green_l[3]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Green_l[2]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Green_l[1]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Green_l[0]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Blue_l[3]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Blue_l[2]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Blue_l[1]
+WARNING: [Synth 8-3331] design merge_display has unconnected port Blue_l[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1098.594 ; gain = 187.770 ; free physical = 1245 ; free virtual = 6064
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1098.594 ; gain = 187.770 ; free physical = 993 ; free virtual = 7798
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -60,21 +151,21 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1098.594 ; gain = 187.770 ; free physical = 1247 ; free virtual = 6066
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1098.594 ; gain = 187.770 ; free physical = 993 ; free virtual = 7798
 ---------------------------------------------------------------------------------
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/blk_mem_gen_0/blk_mem_gen_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/blk_mem_gen_0/blk_mem_gen_0.dcp]
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'blk_mem_gen_0' instantiated as 'W1/rom' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd:68]
-WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'c1' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:87]
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'clk_wiz_0' instantiated as 'c1' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_top.vhd:103]
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
-Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
-Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/dcp_2/blk_mem_gen_0_in_context.xdc] for cell 'W1/rom'
-Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/dcp_2/blk_mem_gen_0_in_context.xdc] for cell 'W1/rom'
+Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
+Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc] for cell 'c1'
+Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/dcp_2/blk_mem_gen_0_in_context.xdc] for cell 'W1/rom'
+Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/dcp_2/blk_mem_gen_0_in_context.xdc] for cell 'W1/rom'
 Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]
 Finished Parsing XDC File [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/constrs_1/new/vgatop_pins.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/vgademo1_bars_top_propImpl.xdc].
@@ -84,70 +175,68 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1433.039 ; gain = 0.000 ; free physical = 971 ; free virtual = 5790
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
-WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/blk_mem_gen_0/blk_mem_gen_0.dcp]
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1434.039 ; gain = 0.000 ; free physical = 768 ; free virtual = 7572
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/clk_wiz_0/clk_wiz_0.dcp]
+WARNING: [filemgmt 56-147] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/blk_mem_gen_0/blk_mem_gen_0.dcp]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1433.039 ; gain = 522.215 ; free physical = 973 ; free virtual = 5790
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1434.039 ; gain = 523.215 ; free physical = 767 ; free virtual = 7571
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1433.039 ; gain = 522.215 ; free physical = 973 ; free virtual = 5790
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1434.039 ; gain = 523.215 ; free physical = 767 ; free virtual = 7571
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-12815-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100MHz. (constraint file  /home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/.Xil/Vivado-11418-Aoide-ThinkPad-T410/dcp/clk_wiz_0_in_context.xdc, line 4).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1433.039 ; gain = 522.215 ; free physical = 970 ; free virtual = 5791
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1434.039 ; gain = 523.215 ; free physical = 767 ; free virtual = 7571
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:60]
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:60]
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:60]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:158]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:125]
-INFO: [Synth 8-5545] ROM "increase" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "increase" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "increase" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "punch" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:172]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:129]
+INFO: [Synth 8-5545] ROM "collision_zone" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "sync_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "x_data" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "y_data" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-327] inferring latch for variable 'btn_out_reg' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd:57]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1433.039 ; gain = 522.215 ; free physical = 966 ; free virtual = 5788
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 1434.039 ; gain = 523.215 ; free physical = 762 ; free virtual = 7566
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -161,34 +250,40 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input     33 Bit       Adders := 1     
-	   2 Input     32 Bit       Adders := 8     
+	   2 Input     32 Bit       Adders := 9     
 	   3 Input     32 Bit       Adders := 5     
 	   2 Input     31 Bit       Adders := 1     
+	   2 Input     21 Bit       Adders := 1     
 	   2 Input     18 Bit       Adders := 2     
 	   3 Input     18 Bit       Adders := 30    
 	   2 Input     11 Bit       Adders := 2     
 +---Registers : 
-	               32 Bit    Registers := 4     
+	               32 Bit    Registers := 3     
+	               21 Bit    Registers := 1     
 	               11 Bit    Registers := 2     
 	                8 Bit    Registers := 1     
-	                4 Bit    Registers := 8     
-	                1 Bit    Registers := 8     
+	                4 Bit    Registers := 7     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 10    
 +---Multipliers : 
 	                14x32  Multipliers := 1     
 	                17x32  Multipliers := 1     
+	                 5x32  Multipliers := 1     
 	                32x32  Multipliers := 2     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 2     
 	 362 Input     32 Bit        Muxes := 2     
 	   2 Input     31 Bit        Muxes := 1     
+	   4 Input     21 Bit        Muxes := 1     
 	   2 Input     18 Bit        Muxes := 30    
-	   2 Input      5 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 13    
-	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 10    
+	   2 Input      4 Bit        Muxes := 12    
+	   2 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 2     
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
 	  13 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -234,26 +329,43 @@ Module swing
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input     32 Bit       Adders := 5     
-	   2 Input     32 Bit       Adders := 5     
+	   2 Input     32 Bit       Adders := 6     
 	   2 Input     18 Bit       Adders := 2     
 	   3 Input     18 Bit       Adders := 30    
 +---Registers : 
-	               32 Bit    Registers := 4     
-	                4 Bit    Registers := 2     
+	               32 Bit    Registers := 3     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 3     
 +---Multipliers : 
 	                14x32  Multipliers := 1     
 	                17x32  Multipliers := 1     
+	                 5x32  Multipliers := 1     
 	                32x32  Multipliers := 2     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
 	 362 Input     32 Bit        Muxes := 2     
 	   2 Input     18 Bit        Muxes := 30    
-	   2 Input      5 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 8     
+	   2 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 2     
+Module debouncer 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module Wario_logic 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     21 Bit       Adders := 1     
++---Registers : 
+	               21 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   4 Input     21 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -270,13 +382,9 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/background.vhd:60]
-INFO: [Synth 8-5545] ROM "punch" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "sync_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "increase" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "increase" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "increase" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:236]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:238]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:275]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd:277]
 DSP Report: Generating DSP d0, operation Mode is: A*B.
 DSP Report: operator d0 is absorbed into DSP d0.
 DSP Report: operator d0 is absorbed into DSP d0.
@@ -301,99 +409,131 @@ DSP Report: operator d0 is absorbed into DSP d0.
 DSP Report: Generating DSP d0, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator d0 is absorbed into DSP d0.
 DSP Report: operator d0 is absorbed into DSP d0.
-WARNING: [Synth 8-3331] design swing has unconnected port vs
-WARNING: [Synth 8-3331] design words has unconnected port vs
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[28]' (FDE) to 'S1/punch_reg[31]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[29]' (FDE) to 'S1/punch_reg[31]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[30]' (FDE) to 'S1/punch_reg[31]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[31]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[26]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[2]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[3]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[4]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[5]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[6]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[7]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[8]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[9]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[10]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[11]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[12]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[13]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[14]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[15]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[16]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[17]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[18]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[19]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[20]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[21]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[24]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[25]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[23]' (FDE) to 'S1/punch_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/punch_reg[27]' (FDE) to 'S1/punch_reg[22]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (S1/\punch_reg[22] )
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[9]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[10]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[11]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[12]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[13]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[14]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[15]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[16]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[17]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[18]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[19]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[20]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[21]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[22]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[23]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[24]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[25]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[26]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[27]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[28]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[29]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[30]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[31]' (FDE) to 'S1/x_pos_reg[9]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[9]' (FDE) to 'S1/x_pos_reg[10]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[10]' (FDE) to 'S1/x_pos_reg[11]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[11]' (FDE) to 'S1/x_pos_reg[12]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[12]' (FDE) to 'S1/x_pos_reg[13]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[13]' (FDE) to 'S1/x_pos_reg[14]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[14]' (FDE) to 'S1/x_pos_reg[15]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[15]' (FDE) to 'S1/x_pos_reg[16]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[16]' (FDE) to 'S1/x_pos_reg[17]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[17]' (FDE) to 'S1/x_pos_reg[18]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[18]' (FDE) to 'S1/x_pos_reg[19]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[19]' (FDE) to 'S1/x_pos_reg[20]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[20]' (FDE) to 'S1/x_pos_reg[21]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[21]' (FDE) to 'S1/x_pos_reg[22]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[22]' (FDE) to 'S1/x_pos_reg[23]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[23]' (FDE) to 'S1/x_pos_reg[24]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[24]' (FDE) to 'S1/x_pos_reg[25]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[25]' (FDE) to 'S1/x_pos_reg[26]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[26]' (FDE) to 'S1/x_pos_reg[27]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[27]' (FDE) to 'S1/x_pos_reg[28]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[28]' (FDE) to 'S1/x_pos_reg[29]'
-INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[29]' (FDE) to 'S1/x_pos_reg[30]'
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[31]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[30]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[29]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[28]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[27]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[26]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[25]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[24]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[23]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[22]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[21]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[20]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[19]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[18]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[17]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[16]
+WARNING: [Synth 8-3331] design Wario_logic has unconnected port speed[15]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[9]' (FDE) to 'S1/y_pos_reg[10]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[10]' (FDE) to 'S1/y_pos_reg[11]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[11]' (FDE) to 'S1/y_pos_reg[12]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[12]' (FDE) to 'S1/y_pos_reg[13]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[13]' (FDE) to 'S1/y_pos_reg[14]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[14]' (FDE) to 'S1/y_pos_reg[15]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[15]' (FDE) to 'S1/y_pos_reg[16]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[16]' (FDE) to 'S1/y_pos_reg[17]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[17]' (FDE) to 'S1/y_pos_reg[18]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[18]' (FDE) to 'S1/y_pos_reg[19]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[19]' (FDE) to 'S1/y_pos_reg[20]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[20]' (FDE) to 'S1/y_pos_reg[21]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[21]' (FDE) to 'S1/y_pos_reg[22]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[22]' (FDE) to 'S1/y_pos_reg[23]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[23]' (FDE) to 'S1/y_pos_reg[24]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[24]' (FDE) to 'S1/y_pos_reg[25]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[25]' (FDE) to 'S1/y_pos_reg[26]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[26]' (FDE) to 'S1/y_pos_reg[27]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[27]' (FDE) to 'S1/y_pos_reg[28]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[28]' (FDE) to 'S1/y_pos_reg[29]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[29]' (FDE) to 'S1/y_pos_reg[30]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[30]' (FDE) to 'S1/y_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/y_pos_reg[31]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[9]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[10]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[11]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[12]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[13]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[14]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[15]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[16]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[17]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[18]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[19]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[20]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[21]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[22]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[23]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[24]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[25]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[26]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[27]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[28]' (FDE) to 'S1/x_pos_reg[31]'
+INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[29]' (FDE) to 'S1/x_pos_reg[31]'
 INFO: [Synth 8-3886] merging instance 'S1/x_pos_reg[30]' (FDE) to 'S1/x_pos_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (S1/\x_pos_reg[31] )
 INFO: [Synth 8-3886] merging instance 'S1/Blue_reg[3]' (FDR) to 'S1/Blue_reg[0]'
+INFO: [Synth 8-3886] merging instance 'S1/Green_reg[0]' (FD) to 'S1/Red_reg[0]'
 INFO: [Synth 8-3886] merging instance 'S1/Blue_reg[2]' (FDR) to 'S1/Blue_reg[0]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (S1/\Blue_reg[0] )
-INFO: [Synth 8-3886] merging instance 'S1/Red_reg[1]' (FDS) to 'S1/Red_reg[3]'
-INFO: [Synth 8-3886] merging instance 'S1/Red_reg[3]' (FDS) to 'S1/Red_reg[2]'
-INFO: [Synth 8-3886] merging instance 'S1/Red_reg[2]' (FDS) to 'S1/Red_reg[0]'
+INFO: [Synth 8-3886] merging instance 'm1/RED_reg[0]' (FD) to 'm1/RED_reg[1]'
 INFO: [Synth 8-3886] merging instance 'm1/BLUE_reg[0]' (FD) to 'm1/BLUE_reg[2]'
 INFO: [Synth 8-3886] merging instance 'm1/BLUE_reg[2]' (FD) to 'm1/BLUE_reg[3]'
-INFO: [Synth 8-3886] merging instance 'm1/RED_reg[0]' (FD) to 'm1/RED_reg[1]'
-WARNING: [Synth 8-3332] Sequential element (punch_reg[22]) is unused and will be removed from module swing.
+WARNING: [Synth 8-3332] Sequential element (collision_zone_reg[1]) is unused and will be removed from module swing.
+WARNING: [Synth 8-3332] Sequential element (collision_zone_reg[0]) is unused and will be removed from module swing.
+WARNING: [Synth 8-3332] Sequential element (collide_reg[1]) is unused and will be removed from module swing.
+WARNING: [Synth 8-3332] Sequential element (collide_reg[0]) is unused and will be removed from module swing.
 WARNING: [Synth 8-3332] Sequential element (Blue_reg[0]) is unused and will be removed from module swing.
 WARNING: [Synth 8-3332] Sequential element (x_pos_reg[31]) is unused and will be removed from module swing.
-INFO: [Synth 8-3886] merging instance 'S1/Blue_reg[1]' (FDS) to 'S1/Red_reg[0]'
+WARNING: [Synth 8-3332] Sequential element (W2/D1/btn_out_reg) is unused and will be removed from module vgademo1_bars_top.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net LED with 1st driver pin 'W2/D1/btn_out_reg/Q' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd:57]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net LED with 2nd driver pin 'GND' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd:57]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net LED is connected to constant driver, other driver is ignored [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd:57]
+WARNING: [Synth 8-3332] Sequential element (W2/btn_press_reg) is unused and will be removed from module vgademo1_bars_top.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net btn_press with 1st driver pin 'W2/btn_press_reg/Q' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:68]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net btn_press with 2nd driver pin 'GND' [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:68]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net btn_press is connected to constant driver, other driver is ignored [/home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd:68]
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[0]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[1]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[2]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[3]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[4]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[5]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[6]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[7]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[8]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[9]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[10]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[11]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/DB_count_reg[12]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/D1/latch_reg) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_state_reg[1]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_state_reg[0]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[20]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[19]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[18]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[17]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[16]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[15]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[14]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[13]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[12]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[11]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[10]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[9]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[8]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[7]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[6]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[5]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[4]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[3]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[2]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[1]) is unused and will be removed from module vgademo1_bars_top.
+WARNING: [Synth 8-3332] Sequential element (W2/btn_count_reg[0]) is unused and will be removed from module vgademo1_bars_top.
+INFO: [Synth 8-3886] merging instance 'm1/GREEN_reg[0]' (FD) to 'm1/RED_reg[2]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 1433.039 ; gain = 522.215 ; free physical = 963 ; free virtual = 5783
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1434.039 ; gain = 523.215 ; free physical = 785 ; free virtual = 7589
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -432,10 +572,10 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'c1/clk_out1' to pin 'c1/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1451.039 ; gain = 540.215 ; free physical = 940 ; free virtual = 5760
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:00:49 . Memory (MB): peak = 1445.039 ; gain = 534.215 ; free physical = 719 ; free virtual = 7522
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 1504.062 ; gain = 593.238 ; free physical = 891 ; free virtual = 5710
+Finished Timing Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:52 . Memory (MB): peak = 1485.062 ; gain = 574.238 ; free physical = 680 ; free virtual = 7484
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -447,7 +587,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1512.070 ; gain = 601.246 ; free physical = 882 ; free virtual = 5700
+Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 1493.070 ; gain = 582.246 ; free physical = 670 ; free virtual = 7474
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -488,7 +628,7 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module \W1/rom  has unconnected pin di
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \W1/rom  has unconnected pin dina[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \W1/rom  has unconnected pin dina[0]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.070 ; gain = 601.246 ; free physical = 882 ; free virtual = 5700
+Finished IO Insertion : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1493.070 ; gain = 582.246 ; free physical = 670 ; free virtual = 7474
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -501,7 +641,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.070 ; gain = 601.246 ; free physical = 882 ; free virtual = 5700
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1493.070 ; gain = 582.246 ; free physical = 670 ; free virtual = 7474
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -513,25 +653,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.070 ; gain = 601.246 ; free physical = 882 ; free virtual = 5700
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1493.070 ; gain = 582.246 ; free physical = 670 ; free virtual = 7474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.070 ; gain = 601.246 ; free physical = 882 ; free virtual = 5700
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1493.070 ; gain = 582.246 ; free physical = 670 ; free virtual = 7474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.070 ; gain = 601.246 ; free physical = 881 ; free virtual = 5700
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1493.070 ; gain = 582.246 ; free physical = 670 ; free virtual = 7474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.070 ; gain = 601.246 ; free physical = 881 ; free virtual = 5700
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1493.070 ; gain = 582.246 ; free physical = 670 ; free virtual = 7474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -565,40 +705,40 @@ Report Cell Usage:
 +------+-------------------+------+
 |1     |blk_mem_gen_0_bbox |     1|
 |2     |clk_wiz_0_bbox     |     1|
-|3     |CARRY4             |   292|
+|3     |CARRY4             |   285|
 |4     |DSP48E1            |     6|
-|5     |LUT1               |   351|
-|6     |LUT2               |   477|
-|7     |LUT3               |   227|
-|8     |LUT4               |   165|
-|9     |LUT5               |    38|
-|10    |LUT6               |   183|
+|5     |LUT1               |   344|
+|6     |LUT2               |   453|
+|7     |LUT3               |   229|
+|8     |LUT4               |   159|
+|9     |LUT5               |    32|
+|10    |LUT6               |   172|
 |11    |MUXF7              |    50|
 |12    |SRL16E             |     4|
-|13    |FDRE               |   154|
+|13    |FDRE               |   150|
 |14    |IBUF               |     1|
-|15    |OBUF               |    15|
+|15    |OBUF               |    16|
 +------+-------------------+------+
 
 Report Instance Areas: 
 +------+---------+----------------------+------+
 |      |Instance |Module                |Cells |
 +------+---------+----------------------+------+
-|1     |top      |                      |  1981|
-|2     |  S1     |swing                 |   997|
+|1     |top      |                      |  1919|
+|2     |  S1     |swing                 |   924|
 |3     |  W1     |words                 |    41|
 |4     |  b1     |background            |    36|
-|5     |  m1     |merge_display         |     9|
-|6     |  v1     |vga_controller_640_60 |   230|
+|5     |  m1     |merge_display         |     8|
+|6     |  v1     |vga_controller_640_60 |   231|
 +------+---------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.070 ; gain = 601.246 ; free physical = 881 ; free virtual = 5700
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1493.070 ; gain = 582.246 ; free physical = 670 ; free virtual = 7474
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 17 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1512.070 ; gain = 167.496 ; free physical = 881 ; free virtual = 5700
-Synthesis Optimization Complete : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.078 ; gain = 601.254 ; free physical = 881 ; free virtual = 5700
+Synthesis finished with 0 errors, 23 critical warnings and 129 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:45 ; elapsed = 00:00:45 . Memory (MB): peak = 1493.070 ; gain = 147.496 ; free physical = 670 ; free virtual = 7474
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1493.078 ; gain = 582.254 ; free physical = 670 ; free virtual = 7474
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 299 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 292 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -606,9 +746,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-176 Infos, 20 Warnings, 17 Critical Warnings and 0 Errors encountered.
+146 Infos, 163 Warnings, 23 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1512.078 ; gain = 514.535 ; free physical = 882 ; free virtual = 5701
+synth_design: Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 1493.078 ; gain = 495.535 ; free physical = 672 ; free virtual = 7475
 INFO: [Common 17-1381] The checkpoint '/home/aaron/school/EGR426/Wario/vgademo1_bars.runs/synth_1/vgademo1_bars_top.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1536.082 ; gain = 0.000 ; free physical = 881 ; free virtual = 5700
-INFO: [Common 17-206] Exiting Vivado at Sat Mar 11 21:47:27 2017...
+report_utilization: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1517.082 ; gain = 0.000 ; free physical = 669 ; free virtual = 7473
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 14 22:15:15 2017...
