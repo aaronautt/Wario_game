@@ -36,8 +36,10 @@ use IEEE.numeric_std.ALL;
 entity swing is
   Port (vs, blank, clk, btn : in std_logic;
         LED : out std_logic;
+        punch : inout integer;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
+        --collide : out STD_LOGIC_VECTOR (1 downto 0));
 end swing;
 
 architecture Behavioral of swing is
@@ -129,7 +131,8 @@ architecture Behavioral of swing is
 
   component Wario_logic is
     Port (btn_stop, clk : in STD_LOGIC;
-          punch, angle : inout integer);
+          punch, angle : inout integer;
+          collide : in STD_LOGIC_VECTOR (1 downto 0));
     end component;
 
 
@@ -142,7 +145,7 @@ architecture Behavioral of swing is
   signal increase : STD_LOGIC := '1'; -- flag to set whether the circle is
   -- moving CCW=1 or CW=0
   signal count : integer := 0;
-  signal punch : integer := 3;-- counting which punch it's on punch 1 = 3, then
+  --signal punch : integer := 3;-- counting which punch it's on punch 1 = 3, then
   -- down from there punch 3 = 1
   signal sync_count : integer := 0;                                    
   signal shift_count : integer := 0;
@@ -154,9 +157,10 @@ architecture Behavioral of swing is
 begin
 
   D1 : debouncer port map (clk => clk, btn_in => btn, btn_out => btn_out, btn_stop => btn_stop);
-  L1 : Wario_logic port map (clk => clk, btn_stop => btn_stop, punch => punch, angle => angle);
+  L1 : Wario_logic port map (clk => clk, btn_stop => btn_stop, punch => punch, angle => angle,
+                             collide => collide);
 
-  process(btn_out)
+  process(btn_stop)
   begin
     if btn_stop ='1' then
       LED <= '1';
@@ -170,11 +174,12 @@ begin
 
 
 
-  collision : process(clk)
+  collision : process(clk, collide, punch, angle)
   begin
     if rising_edge(clk) then
       if y_pos > 350 and increase = '0' and x_pos <= 324 and x_pos > 320 and btn_out = '1' then
-        collide <= "01";
+        collide <= "01";--If the button is high in the collision zone it moves
+                        --on
         increase <= '1';
       elsif y_pos > 350 and increase = '0' and x_pos = 320 and btn_out = '0' then
         collide <= "10";
@@ -183,23 +188,30 @@ begin
         collide <= "00";
       end if;
 
+      if punch > 0 and punch < 9 then
+        if sync_count = angle then
+          increase <= '0';
+        end if;
+      end if;
+
+
       -- this section defines how far up the ball moves based on which punch
-      if punch = 3 then -- first punch
-        if sync_count = 30 then
-          increase <= '0';
-        end if;
-      elsif punch = 2 then -- second punch
-        if sync_count = 65 then
-          increase <= '0';
-        end if;
-      elsif punch = 1 then -- third punch
-        if sync_count = 100 then
-          increase <= '0';
-        end if;
-      elsif punch = 5 then
-        if sync_count = 180 then
-          increase <= '0';
-          end if;
+      -- if punch = 3 then -- first punch
+      --   if sync_count = angle then
+      --     increase <= '0';
+      --   end if;
+      -- elsif punch = 2 then -- second punch
+      --   if sync_count = angle then
+      --     increase <= '0';
+      --   end if;
+      -- elsif punch = 1 then -- third punch
+      --   if sync_count = angle then
+      --     increase <= '0';
+      --   end if;
+      -- elsif punch = 5 then
+      --   if sync_count = angle then
+      --     increase <= '0';
+      --     end if;
         --elsif punch = 0 then -- final punch, which will end in an explosion or
                              -- something eventually
         

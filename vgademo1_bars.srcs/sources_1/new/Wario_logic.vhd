@@ -33,31 +33,38 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Wario_logic is
   Port (btn_stop, clk : in STD_LOGIC;
-        collide : in STD_LOGIC_VECTOR (1 downto 0);
-        punch, angle : inout integer);
+        collide : in STD_LOGIC_VECTOR (1 downto 0) := "00";
+        punch : inout integer := 3;
+        angle : inout integer);
 end Wario_logic;
 
 architecture Behavioral of Wario_logic is
   signal state : integer;
 
 begin
-
-  punch_proc : process(clk)
+-- make this a state machine
+  punch_proc : process(clk, collide, punch)
   begin
     if rising_edge(clk) then
       if collide = "01" and punch = 3 then -- if successful punch move to next
         punch <= 2;
+        angle <= 70;
       elsif
         collide = "01" and punch = 2 then
         punch <= 1;
+        angle <= 100;
       elsif collide = "01" and punch = 1 then
         punch <= 0;
+        --angle <= 100;
       elsif collide = "10" and (punch = 5 or punch = 3 or punch = 2 or punch = 1) then
         punch <= 5;
+        angle <= 180;
       elsif punch = 5 and collide = "01" then
         punch <= 3;
+        angle <= 40;
       elsif punch = 0 then-- this needs to be removed
         punch <= 3;
+        angle <= 40;
       else
         punch <= punch;
       end if;
