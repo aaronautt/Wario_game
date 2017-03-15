@@ -156,7 +156,7 @@ begin
   D1 : debouncer port map (clk => clk, btn_in => btn, btn_out => btn_out, btn_stop => btn_stop);
   L1 : Wario_logic port map (clk => clk, btn_stop => btn_stop, punch => punch, angle => angle);
 
-  process(btn_stop)
+  process(btn_out)
   begin
     if btn_stop ='1' then
       LED <= '1';
@@ -173,10 +173,10 @@ begin
   collision : process(clk)
   begin
     if rising_edge(clk) then
-      if y_pos > 350 and increase = '0' and x_pos <= 323 and x_pos >= 320 and btn_stop = '1' then
+      if y_pos > 350 and increase = '0' and x_pos <= 324 and x_pos > 320 and btn_out = '1' then
         collide <= "01";
         increase <= '1';
-      elsif y_pos > 350 and increase = '0' and x_pos = 320 and btn_stop = '0' then
+      elsif y_pos > 350 and increase = '0' and x_pos = 320 and btn_out = '0' then
         collide <= "10";
         increase <= '1';  
       else
@@ -214,7 +214,7 @@ begin
   -- this block should set the speed change of the ball as it swings
   -- The count will increase slightly each sync_count, and the punch
   -- multiplication will increase the speed as the punches continue
-  --
+  -- as the count increases it slows down the speed of the ball
 
 
   arc_find : process(hcount, vcount, blank, vs, increase, collide, x_pos, y_pos, clk)
@@ -238,7 +238,9 @@ begin
     end if;
   end process;
 
-      
+
+  --this block draws the circle base on the center position calculated above,
+  --it then uses the square root function to 
 
   draw_circle : process(hcount,vcount,blank, clk, collide)       -- Procedural block for displaying the GREEN object
     variable row : integer := 0;
@@ -278,6 +280,7 @@ begin
     end if;
   end process;
 
+  -- This block adds color shifting to the ball
 
   color_shift : process(vs)
     variable up : STD_LOGIC := '0';
