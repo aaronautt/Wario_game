@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date             : Sat Mar 11 21:50:59 2017
+| Date             : Tue Mar 14 23:42:47 2017
 | Host             : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command          : report_power -file vgademo1_bars_top_power_routed.rpt -pb vgademo1_bars_top_power_summary_routed.pb -rpx vgademo1_bars_top_power_routed.rpx
 | Design           : vgademo1_bars_top
@@ -50,18 +50,18 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |    <0.001 |        5 |       --- |             --- |
-| Slice Logic             |     0.002 |     1849 |       --- |             --- |
-|   LUT as Logic          |     0.001 |     1155 |     20800 |            5.55 |
-|   CARRY4                |    <0.001 |      292 |      8150 |            3.58 |
-|   Register              |    <0.001 |      173 |     41600 |            0.42 |
+| Slice Logic             |     0.002 |     1794 |       --- |             --- |
+|   LUT as Logic          |     0.002 |     1131 |     20800 |            5.44 |
+|   CARRY4                |    <0.001 |      285 |      8150 |            3.50 |
+|   Register              |    <0.001 |      172 |     41600 |            0.41 |
 |   F7/F8 Muxes           |    <0.001 |       50 |     32600 |            0.15 |
 |   LUT as Shift Register |    <0.001 |        4 |      9600 |            0.04 |
 |   Others                |     0.000 |       21 |       --- |             --- |
-| Signals                 |     0.002 |     1521 |       --- |             --- |
+| Signals                 |     0.002 |     1498 |       --- |             --- |
 | Block RAM               |    <0.001 |      0.5 |        50 |            1.00 |
 | MMCM                    |     0.116 |        1 |         5 |           20.00 |
 | DSPs                    |    <0.001 |        6 |        90 |            6.67 |
-| I/O                     |    <0.001 |       17 |       106 |           16.04 |
+| I/O                     |    <0.001 |       18 |       106 |           16.98 |
 | Static Power            |     0.072 |          |           |                 |
 | Total                   |     0.194 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+

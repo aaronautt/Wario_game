@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Sat Mar 11 21:50:07 2017
+| Date         : Tue Mar 14 23:41:58 2017
 | Host         : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command      : report_drc -file vgademo1_bars_top_drc_opted.rpt
 | Design       : vgademo1_bars_top

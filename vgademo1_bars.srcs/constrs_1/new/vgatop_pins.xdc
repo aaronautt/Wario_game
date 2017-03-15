@@ -31,4 +31,10 @@ set_property PACKAGE_PIN J19 [get_ports {RED[2]}]
 set_property PACKAGE_PIN N19 [get_ports {RED[3]}]
 set_property PACKAGE_PIN R19 [get_ports VSYNC]
 set_property PACKAGE_PIN U18 [get_ports reset]      
-set_property PACKAGE_PIN U16 [get_ports locked]     
+set_property PACKAGE_PIN U16 [get_ports locked]
+
+set_property IOSTANDARD LVCMOS33 [get_ports btn_in]
+set_property PACKAGE_PIN W19 [get_ports btn_in]
+
+set_property IOSTANDARD LVCMOS33 [get_ports LED]
+set_property PACKAGE_PIN V19 [get_ports LED]

@@ -25,12 +25,13 @@ use IEEE.std_logic_unsigned.all;
 entity debouncer is
     port(clk : in std_logic;
          btn_in : in std_logic;
-         btn_out : out std_logic);
+         btn_out, btn_stop : out std_logic);
 end debouncer;
 
 architecture Behavioral of debouncer is
 signal latch : std_logic := '0'; -- latch signal for double verification of button press
 signal DB_count : std_logic_vector (15 downto 0) := "0000000000000000";
+signal TM_count : std_logic_vector (15 downto 0) := "0000000000000000";
 
 begin
     process(btn_in, clk) -- counts up to 65535 on 25MHz clock cycles, if 0 detected it resets
@@ -61,6 +62,25 @@ begin
             end if;
         --else btn_out <= '0';
         end if;
-     end process;
+    end process;
+
+    process(latch, btn_in, clk)
+    begin
+      if rising_edge(clk) then
+        TM_count <= TM_count + 1;
+        if latch = '1' then
+          if btn_in = '1' then
+            btn_stop <= '1';
+          elsif btn_in = '0' or TM_count = "1111111111111111" then
+--                latch <= '0';
+            TM_count <= "0000000000000000";
+            btn_stop <= '0';
+          end if;
+        else TM_count <= "0000000000000000";
+        end if;
+      end if;
+    end process;
+
+        
 
 end Behavioral;

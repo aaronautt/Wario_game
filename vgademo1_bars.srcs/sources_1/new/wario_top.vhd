@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 entity vgademo1_bars_top is
 Port(clk_100MHz, reset, btn_in : in STD_LOGIC; 
-     HSYNC,VSYNC,locked : out STD_LOGIC;
+     HSYNC,VSYNC,locked, LED : out STD_LOGIC;
      RED,GREEN,BLUE : out STD_LOGIC_VECTOR(3 downto 0));
 end vgademo1_bars_top;
 
@@ -69,6 +69,7 @@ end component;
 component swing is
   Port (vs, blank, clk : in std_logic;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
+        LED : out std_logic;
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
@@ -110,7 +111,7 @@ W1 : words PORT MAP (clk25 => clk_25MHZ, vs => VS, blank => blank, hcount => hco
                      vcount => vcount, Red => RED_w, Green => GREEN_w, Blue => BLUE_w);
 
 S1 : swing port map (vs => VS, clk => clk_25MHz, blank => blank, hcount => hcount, vcount => vcount,
-                     Red => RED_s, Green => GREEN_s, Blue => BLUE_S);
+                     Red => RED_s, Green => GREEN_s, Blue => BLUE_S, LED => LED);
 
 D1 : debouncer port map (clk => clk_25MHz, btn_in => btn_in, btn_out => btn_out);
 

@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Sat Mar 11 21:50:57 2017
+| Date         : Tue Mar 14 23:42:45 2017
 | Host         : Aoide-ThinkPad-T410 running 64-bit Ubuntu 16.04.2 LTS
 | Command      : report_methodology -file vgademo1_bars_top_methodology_drc_routed.rpt -rpx vgademo1_bars_top_methodology_drc_routed.rpx
 | Design       : vgademo1_bars_top
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 23
+             Violations found: 24
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
 | SYNTH-10  | Warning  | Wide multiplier               | 6          |
-| TIMING-16 | Warning  | Large setup violation         | 2          |
+| TIMING-16 | Warning  | Large setup violation         | 3          |
 | TIMING-18 | Warning  | Missing input or output delay | 15         |
 +-----------+----------+-------------------------------+------------+
 
@@ -66,12 +66,17 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -6.093 ns between v1/vcounter_reg[1]/C (clocked by clk_out1_clk_wiz_0) and S1/Red_reg[0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.595 ns between S1/y_pos_reg[1]/C (clocked by clk_out1_clk_wiz_0) and S1/Green_reg[0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -6.207 ns between v1/vcounter_reg[1]/C (clocked by clk_out1_clk_wiz_0) and S1/Green_reg[0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.921 ns between S1/y_pos_reg[1]/C (clocked by clk_out1_clk_wiz_0) and S1/Red_reg[0]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -5.984 ns between S1/y_pos_reg[1]/C (clocked by clk_out1_clk_wiz_0) and S1/Blue_reg[1]/D (clocked by clk_out1_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning
