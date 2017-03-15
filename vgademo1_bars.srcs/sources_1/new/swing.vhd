@@ -34,7 +34,7 @@ use IEEE.numeric_std.ALL;
 --use UNISIM.VComponents.all;
 
 entity swing is
-  Port (vs, blank, clk, btn : in std_logic;
+  Port (vs, blank, clk, btn, reset : in std_logic;
         LED : out std_logic;
         punch : inout integer;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
@@ -130,7 +130,7 @@ architecture Behavioral of swing is
   end component;
 
   component Wario_logic is
-    Port (btn_stop, clk : in STD_LOGIC;
+    Port (btn_stop, clk, reset : in STD_LOGIC;
           punch, angle : inout integer;
           collide : in STD_LOGIC_VECTOR (1 downto 0));
     end component;
@@ -142,7 +142,7 @@ architecture Behavioral of swing is
   signal x_pos : integer := 150;
   signal y_pos : integer := 100;
   signal speed : integer := 1; --speed variable, higher is slower
-  signal increase : STD_LOGIC := '1'; -- flag to set whether the circle is
+  signal increase : STD_LOGIC_VECTOR (1 downto 0) := "00"; -- flag to set whether the circle is
   -- moving CCW=1 or CW=0
   signal count : integer := 0;
   --signal punch : integer := 3;-- counting which punch it's on punch 1 = 3, then
@@ -158,7 +158,7 @@ begin
 
   D1 : debouncer port map (clk => clk, btn_in => btn, btn_out => btn_out, btn_stop => btn_stop);
   L1 : Wario_logic port map (clk => clk, btn_stop => btn_stop, punch => punch, angle => angle,
-                             collide => collide);
+                             collide => collide, reset => reset);
 
   process(btn_stop)
   begin
@@ -174,23 +174,28 @@ begin
 
 
 
-  collision : process(clk, collide, punch, angle)
+  collision : process(clk, collide, punch, angle, btn_out, btn_stop)
   begin
     if rising_edge(clk) then
-      if y_pos > 350 and increase = '0' and x_pos <= 324 and x_pos > 320 and btn_out = '1' then
+      if punch = 10 and btn_stop = '1' then
+        collide <= "01";
+        increase <= "01";
+      elsif punch = 10 and btn_stop = '0' then
+        increase <= "10";
+      elsif y_pos > 350 and (increase = "00" or increase = "10") and x_pos <= 325 and x_pos > 320 and btn_stop = '1' then
         collide <= "01";--If the button is high in the collision zone it moves
                         --on
-        increase <= '1';
-      elsif y_pos > 350 and increase = '0' and x_pos = 320 and btn_out = '0' then
+        increase <= "01";
+      elsif y_pos > 350 and increase = "00" and x_pos = 320 and btn_stop = '0' then
         collide <= "10";
-        increase <= '1';  
+        increase <= "01";
       else
         collide <= "00";
       end if;
 
       if punch > 0 and punch < 9 then
         if sync_count = angle then
-          increase <= '0';
+          increase <= "00";
         end if;
       end if;
 
@@ -216,7 +221,6 @@ begin
                              -- something eventually
         
       end if;
-    end if;
   end process;
 
 -- This process just increments the punch that it's on if a collision occurs
@@ -237,10 +241,12 @@ begin
         count <= 0;
         x_pos <= x_data(sync_count);
         y_pos <= y_data(sync_count);
-        if increase = '1' then
+        if increase = "01" then
           sync_count <= sync_count + 1;
-        elsif increase = '0' then
+        elsif increase = "00" then
           sync_count <= sync_count - 1;
+        elsif increase = "10" then
+          sync_count <= 1; -- ball needs to start at 1 degree, so as not to lock
         end if;
 
         if sync_count = 360 then
@@ -274,15 +280,15 @@ begin
          and Col_1 > Col_2 and Row_1 > Row_2 and Col_1 >= -50 and Col_1 <= 690
          and Col_2 >= -50 and Col_2 <= 690 and Row_1 >= -50 and Row_1 <= 530
          and Row_2 >= -50 and Row_2 <= 530) and (blank = '0') then
-        if collide = "00" then
-          Green <= X"1";--RGB(11) & RGB(8) & RGB(5) & RGB(2);
-          Blue <= X"2";--RGB(10) & RGB(7) & RGB(4) & RGB(1);
-          Red <= X"F";--RGB(9) & RGB(6) & RGB(3) & RGB(0);
-        elsif collide = "01" then
-          Green <= X"1";
-          Blue <= X"0";
-          Red <= X"0";
-        end if;
+       -- if collide = "00" then
+          Green <= RGB(11) & RGB(8) & RGB(5) & RGB(2);
+          Blue <= RGB(10) & RGB(7) & RGB(4) & RGB(1);
+          Red <= RGB(9) & RGB(6) & RGB(3) & RGB(0);
+        -- elsif collide = "01" then
+        --   Green <= X"F";
+        --   Blue <= X"F";
+        --   Red <= X"F";
+        -- end if;
 
       else
         Green <= X"0";

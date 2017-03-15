@@ -67,7 +67,7 @@ component words is
 end component;
 
 component swing is
-  Port (vs, blank, clk, btn : in std_logic;
+  Port (vs, blank, clk, btn, reset : in std_logic;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
         LED : out std_logic;
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
@@ -111,7 +111,8 @@ W1 : words PORT MAP (clk25 => clk_25MHZ, vs => VS, blank => blank, hcount => hco
                      vcount => vcount, Red => RED_w, Green => GREEN_w, Blue => BLUE_w);
 
 S1 : swing port map (vs => VS, clk => clk_25MHz, blank => blank, hcount => hcount, vcount => vcount,
-                     Red => RED_s, Green => GREEN_s, Blue => BLUE_S, LED => LED, btn => btn_in);
+                     Red => RED_s, Green => GREEN_s, Blue => BLUE_S, LED => LED, btn => btn_in,
+                     reset => reset);
 
 --D1 : debouncer port map (clk => clk_25MHz, btn_in => btn_in, btn_out => btn_out);
 
