@@ -35,11 +35,9 @@ use IEEE.numeric_std.ALL;
 
 entity swing is
   Port (vs, blank, clk, btn, reset : in std_logic;
-        LED : out std_logic;
-        punch : inout integer;
+        LED, circle_on : out std_logic;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
-        --collide : out STD_LOGIC_VECTOR (1 downto 0));
 end swing;
 
 architecture Behavioral of swing is
@@ -131,12 +129,15 @@ architecture Behavioral of swing is
 
   component Wario_logic is
     Port (btn_stop, clk, reset : in STD_LOGIC;
-          punch, angle : inout integer;
-          collide : in STD_LOGIC_VECTOR (1 downto 0));
+          punch : inout integer;
+          angle : out integer;
+          collide : in STD_LOGIC_VECTOR (1 downto 0);
+          increase : out STD_LOGIC_VECTOR(1 downto 0);
+          angle_flag : in std_logic);
     end component;
 
 
-  signal rad_sqr : integer := 400; --radius fo 20 squared
+  signal rad_sqr : integer := 144; --radius fo 12 squared
   signal rad : integer := 20;
   signal fist : integer := 330;
   signal x_pos : integer := 150;
@@ -145,7 +146,7 @@ architecture Behavioral of swing is
   signal increase : STD_LOGIC_VECTOR (1 downto 0) := "00"; -- flag to set whether the circle is
   -- moving CCW=1 or CW=0
   signal count : integer := 0;
-  --signal punch : integer := 3;-- counting which punch it's on punch 1 = 3, then
+  signal punch : integer;-- counting which punch it's on punch 1 = 3, then
   -- down from there punch 3 = 1
   signal sync_count : integer := 0;                                    
   signal shift_count : integer := 0;
@@ -153,12 +154,14 @@ architecture Behavioral of swing is
   signal collide : STD_LOGIC_VECTOR(1 downto 0) := "00";
   signal btn_out, btn_stop : STD_LOGIC := '0';
   signal angle : integer;
+  signal angle_flag : STD_LOGIC := '0';
 
 begin
 
   D1 : debouncer port map (clk => clk, btn_in => btn, btn_out => btn_out, btn_stop => btn_stop);
   L1 : Wario_logic port map (clk => clk, btn_stop => btn_stop, punch => punch, angle => angle,
-                             collide => collide, reset => reset);
+                             collide => collide, increase => increase, reset => reset,
+                             angle_flag => angle_flag);
 
   process(btn_stop)
   begin
@@ -173,54 +176,25 @@ begin
   -- and reverses for each punch strength
 
 
-
-  collision : process(clk, collide, punch, angle, btn_out, btn_stop)
+-- increase : 01 is up, 00 is down, 10 is stop
+  -- collide : 01 is in the collsion zone, 10 is on the collision, 00 is moving
+  -- up in free space, 11 is moving down in free space
+  collision : process(clk, collide, x_pos, y_pos)
   begin
     if rising_edge(clk) then
-      if punch = 10 and btn_stop = '1' then
-        collide <= "01";
-        increase <= "01";
-      elsif punch = 10 and btn_stop = '0' then
-        increase <= "10";
-      elsif y_pos > 350 and (increase = "00" or increase = "10") and x_pos <= 325 and x_pos > 320 and btn_stop = '1' then
+      if y_pos > 350 and  x_pos <= 325 and x_pos > 320 then --(increase = "00" or increase = "10")
         collide <= "01";--If the button is high in the collision zone it moves
                         --on
-        increase <= "01";
-      elsif y_pos > 350 and increase = "00" and x_pos = 320 and btn_stop = '0' then
+       -- increase <= "01";
+      elsif y_pos > 350 and x_pos = 320 then
         collide <= "10";
-        increase <= "01";
-      else
+       -- increase <= "01";
+      elsif x_pos > 325  or y_pos < 350 then
         collide <= "00";
-      end if;
+      --else collide <= "11";
 
-      if punch > 0 and punch < 9 then
-        if sync_count = angle then
-          increase <= "00";
-        end if;
       end if;
-
-
-      -- this section defines how far up the ball moves based on which punch
-      -- if punch = 3 then -- first punch
-      --   if sync_count = angle then
-      --     increase <= '0';
-      --   end if;
-      -- elsif punch = 2 then -- second punch
-      --   if sync_count = angle then
-      --     increase <= '0';
-      --   end if;
-      -- elsif punch = 1 then -- third punch
-      --   if sync_count = angle then
-      --     increase <= '0';
-      --   end if;
-      -- elsif punch = 5 then
-      --   if sync_count = angle then
-      --     increase <= '0';
-      --     end if;
-        --elsif punch = 0 then -- final punch, which will end in an explosion or
-                             -- something eventually
-        
-      end if;
+    end if;
   end process;
 
 -- This process just increments the punch that it's on if a collision occurs
@@ -233,20 +207,30 @@ begin
   -- as the count increases it slows down the speed of the ball
 
 
-  arc_find : process(hcount, vcount, blank, vs, increase, collide, x_pos, y_pos, clk)
+  arc_find : process(reset, hcount, vcount, blank, vs, increase, collide, x_pos, y_pos, clk)
   begin
-    if rising_edge(clk) then
+    if reset = '1' then
+      count <= 0; sync_count <= 0;
+    elsif rising_edge(clk) then
       count <= count + 1;
-      if count = 100000+(punch*50000)+(sync_count*5000) then 
+      if count = 80000+(punch*60000)+(sync_count*5000) then 
         count <= 0;
-        x_pos <= x_data(sync_count);
-        y_pos <= y_data(sync_count);
+        
         if increase = "01" then
           sync_count <= sync_count + 1;
-        elsif increase = "00" then
+        elsif increase = "00" or sync_count = angle then
           sync_count <= sync_count - 1;
         elsif increase = "10" then
           sync_count <= 1; -- ball needs to start at 1 degree, so as not to lock
+        elsif increase = "11" then
+          sync_count <= 180;
+        end if;
+        x_pos <= x_data(sync_count);
+        y_pos <= y_data(sync_count);
+
+        if sync_count = angle then
+          angle_flag <= '1';
+        else angle_flag <= '0';
         end if;
 
         if sync_count = 360 then
@@ -280,6 +264,13 @@ begin
          and Col_1 > Col_2 and Row_1 > Row_2 and Col_1 >= -50 and Col_1 <= 690
          and Col_2 >= -50 and Col_2 <= 690 and Row_1 >= -50 and Row_1 <= 530
          and Row_2 >= -50 and Row_2 <= 530) and (blank = '0') then
+
+        circle_on <= '1';
+        if increase = "11" then
+          Green <= X"F";
+          Red <= X"F";
+          Blue <= X"F";
+        elsif increase = "10" or increase = "01" or increase = "00" then
        -- if collide = "00" then
           Green <= RGB(11) & RGB(8) & RGB(5) & RGB(2);
           Blue <= RGB(10) & RGB(7) & RGB(4) & RGB(1);
@@ -288,12 +279,13 @@ begin
         --   Green <= X"F";
         --   Blue <= X"F";
         --   Red <= X"F";
-        -- end if;
+        end if;
 
       else
         Green <= X"0";
         Blue <= X"0";
-        Red <= X"0";         
+        Red <= X"0";
+        circle_on <= '0';
       end if;
     end if;
   end process;

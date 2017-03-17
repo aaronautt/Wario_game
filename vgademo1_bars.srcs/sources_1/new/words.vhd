@@ -35,7 +35,8 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 
 entity words is
   PORT(clk25, blank, vs : in STD_LOGIC; hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); 
-       Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
+       Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0);
+       word_on : out STD_LOGIC);
 end words;
 
 
@@ -52,6 +53,7 @@ architecture Behavioral of words is
   constant size : integer := 16;
   constant start : integer := 208;
   signal section : std_logic;
+  signal color_temp : std_logic_vector(3 downto 0);
 
 
  COMPONENT blk_mem_gen_0
@@ -183,6 +185,19 @@ end process;
 Red <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
 Green <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
 Blue <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
+
+color_temp <= (INTENSITY & INTENSITY & INTENSITY & INTENSITY) when (blank = '0') else X"0";
+
+process(color_temp, clk25)
+begin
+  if rising_edge(clk25) then
+    if color_temp = "1111" then
+      word_on <= '1';
+    else word_on <= '0';
+    end if;
+  end if;
+end process;
+
 
 
 end Behavioral;
