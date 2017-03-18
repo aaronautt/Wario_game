@@ -35,7 +35,7 @@ use IEEE.numeric_std.ALL;
 
 entity swing is
   Port (vs, blank, clk, btn, reset : in std_logic;
-        LED, circle_on : out std_logic;
+        LED, circle_on, invert : out std_logic;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end swing;
@@ -133,7 +133,8 @@ architecture Behavioral of swing is
           angle : out integer;
           collide : in STD_LOGIC_VECTOR (1 downto 0);
           increase : out STD_LOGIC_VECTOR(1 downto 0);
-          angle_flag : in std_logic);
+          angle_flag : in std_logic;
+          invert : out std_logic);
     end component;
 
 
@@ -155,13 +156,14 @@ architecture Behavioral of swing is
   signal btn_out, btn_stop : STD_LOGIC := '0';
   signal angle : integer;
   signal angle_flag : STD_LOGIC := '0';
+  --signal invert : STD_LOGIC;
 
 begin
 
   D1 : debouncer port map (clk => clk, btn_in => btn, btn_out => btn_out, btn_stop => btn_stop);
   L1 : Wario_logic port map (clk => clk, btn_stop => btn_stop, punch => punch, angle => angle,
                              collide => collide, increase => increase, reset => reset,
-                             angle_flag => angle_flag);
+                             angle_flag => angle_flag, invert => invert);
 
   process(btn_stop)
   begin
@@ -185,21 +187,13 @@ begin
       if y_pos > 350 and  x_pos <= 325 and x_pos > 320 then --(increase = "00" or increase = "10")
         collide <= "01";--If the button is high in the collision zone it moves
                         --on
-       -- increase <= "01";
       elsif y_pos > 350 and x_pos = 320 then
         collide <= "10";
-       -- increase <= "01";
       elsif x_pos > 325  or y_pos < 350 then
         collide <= "00";
-      --else collide <= "11";
-
       end if;
     end if;
   end process;
-
--- This process just increments the punch that it's on if a collision occurs
-
-  
 
   -- this block should set the speed change of the ball as it swings
   -- The count will increase slightly each sync_count, and the punch
@@ -224,6 +218,7 @@ begin
           sync_count <= 1; -- ball needs to start at 1 degree, so as not to lock
         elsif increase = "11" then
           sync_count <= 180;
+        else sync_count <= 0;
         end if;
         x_pos <= x_data(sync_count);
         y_pos <= y_data(sync_count);
@@ -271,14 +266,9 @@ begin
           Red <= X"F";
           Blue <= X"F";
         elsif increase = "10" or increase = "01" or increase = "00" then
-       -- if collide = "00" then
           Green <= RGB(11) & RGB(8) & RGB(5) & RGB(2);
           Blue <= RGB(10) & RGB(7) & RGB(4) & RGB(1);
           Red <= RGB(9) & RGB(6) & RGB(3) & RGB(0);
-        -- elsif collide = "01" then
-        --   Green <= X"F";
-        --   Blue <= X"F";
-        --   Red <= X"F";
         end if;
 
       else

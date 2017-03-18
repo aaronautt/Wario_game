@@ -71,20 +71,20 @@ end component;
 component swing is
   Port (vs, blank, clk, btn, reset : in std_logic;
         hcount, vcount : in STD_LOGIC_VECTOR(10 downto 0);
-        LED, circle_on : out std_logic;
+        LED, circle_on, invert : out std_logic;
         --punch : inout integer;
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
 component MY_PIXEL_DRIVER is
   Port (clk25 : in STD_LOGIC; hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); 
-        blank : in STD_LOGIC;
+        blank, invert : in STD_LOGIC;
         pic_on : out std_logic;
         Red, Green, Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end component;
 
 
-signal clk_25MHz, blank, VS, btn_out : STD_LOGIC;
+signal clk_25MHz, blank, VS, btn_out, invert : STD_LOGIC;
 signal hcount,vcount : STD_LOGIC_VECTOR(10 downto 0);
 signal RED_w,GREEN_w,BLUE_w : STD_LOGIC_VECTOR(3 downto 0);
 signal RED_b,GREEN_b,BLUE_b : STD_LOGIC_VECTOR(3 downto 0);
@@ -99,7 +99,7 @@ begin
 
 P1 : MY_PIXEL_DRIVER port map(clk25 => clk_25MHz, hcount => hcount, vcount => vcount,
                               blank => blank, Red => RED_p, Green => GREEN_p, Blue => BLUE_p,
-                              pic_on => pic_on);
+                              pic_on => pic_on, invert => invert);
 
 c1 : clk_wiz_0 PORT MAP (clk_in1 => clk_100MHz, reset => reset, clk_out1 => clk_25MHz,
                          locked => locked);
@@ -122,7 +122,7 @@ W1 : words PORT MAP (clk25 => clk_25MHZ, vs => VS, blank => blank, hcount => hco
 
 S1 : swing port map (vs => VS, clk => clk_25MHz, blank => blank, hcount => hcount, vcount => vcount,
                      Red => RED_s, Green => GREEN_s, Blue => BLUE_S, LED => LED, btn => btn_in,
-                     reset => reset, circle_on => circle_on);
+                     reset => reset, circle_on => circle_on, invert => invert);
 
 --D1 : debouncer port map (clk => clk_25MHz, btn_in => btn_in, btn_out => btn_out);
 

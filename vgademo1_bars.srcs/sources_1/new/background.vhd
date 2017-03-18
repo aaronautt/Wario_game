@@ -49,11 +49,9 @@ begin
     row := conv_integer(vcount);
     col := conv_integer(hcount);
 
-    if (row > 445 and blank = '0') then
+    if (row > 440 and blank = '0') then
       Red <= "1100"; Green <= "0011"; Blue <= "0000";
-    -- elsif (row >= (400 - 10)) and (row <= (400 + 10)) and (col >= (300 - 10)) and (col <= (300 + 10)) then
-    --   Red <= "0000"; Green <= "0000"; Blue <= "0000";
-    elsif (row > 435 and row <= 445) and blank = '0' then
+    elsif (row > 430 and row <= 440) and blank = '0' then
       Red <= "0100"; Green <= "0001"; Blue <= "0000";
     elsif (col < (320 - (row/2))) and blank = '0' then
       Red <= "0111"; Green <= "0111"; Blue <= "0000";

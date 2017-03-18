@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1489723757">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1489863883">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BG-DRC" Name="vgademo1_bars_top.drc"/>
   <File Type="BG-BGN" Name="vgademo1_bars_top.bgn"/>
@@ -74,6 +74,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/wario_pic.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/swing.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -81,12 +87,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/words.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/wario_pic.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
