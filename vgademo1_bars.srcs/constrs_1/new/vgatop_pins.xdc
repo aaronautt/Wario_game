@@ -14,7 +14,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {RED[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {RED[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports reset]
 set_property IOSTANDARD LVCMOS33 [get_ports VSYNC]
-set_property IOSTANDARD LVCMOS33 [get_ports locked]
+#set_property IOSTANDARD LVCMOS33 [get_ports locked_on]
 set_property PACKAGE_PIN N18 [get_ports {BLUE[0]}]
 set_property PACKAGE_PIN L18 [get_ports {BLUE[1]}]
 set_property PACKAGE_PIN K18 [get_ports {BLUE[2]}]
@@ -31,10 +31,24 @@ set_property PACKAGE_PIN J19 [get_ports {RED[2]}]
 set_property PACKAGE_PIN N19 [get_ports {RED[3]}]
 set_property PACKAGE_PIN R19 [get_ports VSYNC]
 set_property PACKAGE_PIN U18 [get_ports reset]      
-set_property PACKAGE_PIN U16 [get_ports locked]
+#set_property PACKAGE_PIN U16 [get_ports locked_on]
 
 set_property IOSTANDARD LVCMOS33 [get_ports btn_in]
 set_property PACKAGE_PIN W19 [get_ports btn_in]
 
 set_property IOSTANDARD LVCMOS33 [get_ports LED]
 set_property PACKAGE_PIN V19 [get_ports LED]
+
+# an select pins
+set_property PACKAGE_PIN U2 [get_ports {an_sel[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {an_sel[0]}]
+
+set_property PACKAGE_PIN U4 [get_ports {an_sel[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {an_sel[1]}]
+
+set_property PACKAGE_PIN V4 [get_ports {an_sel[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {an_sel[2]}]
+
+set_property PACKAGE_PIN W4 [get_ports {an_sel[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {an_sel[3]}]
+

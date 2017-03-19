@@ -1,7 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
+-- Engineer: Aaron Crump 
+-- Class: EGR 426
 -- Create Date: 03/14/2017 10:25:40 PM
 -- Design Name: 
 -- Module Name: Wario_logic - Behavioral
@@ -39,19 +38,21 @@ entity Wario_logic is
         angle : out integer;
         increase : out STD_LOGIC_VECTOR(1 downto 0);
         angle_flag : in std_logic;
-        invert : out std_logic := '0');
+        invert, back_invert : out std_logic := '0');
 end Wario_logic;
 
 architecture Behavioral of Wario_logic is
   signal state : integer := 10;
   signal count : STD_LOGIC_VECTOR(22 downto 0);
   signal invert_temp : std_logic := '0';
+  signal back_invert_temp : std_logic := '0';
 
 begin
-invert <= invert_temp;
+  invert <= invert_temp;
+  back_invert <= back_invert_temp;
 
   -- State machine to control which punch the game is on and to what angle
-  -- The ball swings up to and which punch the game is on  
+  -- The ball swings up to   
   punch_proc : process(clk, collide, state, btn_stop)
   begin
     if reset = '1' then
@@ -60,7 +61,8 @@ invert <= invert_temp;
       count <= count + 1;
       case state is 
         when 10 => --before the first punch it just hang
-          invert_temp <= '0';
+          invert_temp <= '0'; -- keep color invert flags low until win or lose
+          back_invert_temp <= '0';
           if btn_stop = '0' then
             increase <= "10";
           elsif btn_stop = '1' then
@@ -70,12 +72,13 @@ invert <= invert_temp;
         when 11 =>
           if btn_stop = '1' then
             state <= state;
-          elsif btn_stop = '0' then
+          elsif btn_stop = '0' then -- doesn't move to the next state til
+                                    -- button is low
             state <= 8;
            end if;
         when 8 => --first punch, the slowest and lowest angle
-            angle <= 30;
-            punch <= 8;
+            angle <= 30; -- sets the angle
+            punch <= 8; -- sets the punch speed 
           if angle_flag = '0' then
             increase <= "01";
           elsif angle_flag = '1' then
@@ -192,7 +195,7 @@ invert <= invert_temp;
             increase <= "01";
           elsif angle_flag = '1' then
             increase <= "11";
-            state <= 16;
+            state <= 23;
           end if;
         when 15 =>
           invert_temp <= '1';
@@ -203,6 +206,12 @@ invert <= invert_temp;
             invert_temp <= not invert_temp;
             count <= "00000000000000000000000";
           elsif reset = '1' then
+            state <= 10;
+          end if;
+        when 23 =>
+          back_invert_temp <= '1';
+          increase <= "11";
+          if reset = '1' then
             state <= 10;
           end if;
         when others => state <= 10;

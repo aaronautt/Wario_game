@@ -39,6 +39,10 @@ entity merge_display is
         pic_on, word_on, circle_on : in STD_LOGIc);
 end merge_display;
 
+
+-- color merge file, gives priority to Wario's image, then the title block,
+-- then the ball, then the background
+
 architecture Behavioral of merge_display is
 begin
   process(clk)

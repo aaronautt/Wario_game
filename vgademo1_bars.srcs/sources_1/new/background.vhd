@@ -34,7 +34,7 @@ use ieee.std_logic_arith.all;
 --use UNISIM.VComponents.all;
 
 entity background is
-Port (hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); blank : in STD_LOGIC;
+Port (hcount,vcount : in STD_LOGIC_VECTOR(10 downto 0); blank, back_invert : in STD_LOGIC;
       Red,Green,Blue : out STD_LOGIC_VECTOR(3 downto 0));
 end background;
 
@@ -49,19 +49,40 @@ begin
     row := conv_integer(vcount);
     col := conv_integer(hcount);
 
-    if (row > 440 and blank = '0') then
-      Red <= "1100"; Green <= "0011"; Blue <= "0000";
-    elsif (row > 430 and row <= 440) and blank = '0' then
-      Red <= "0100"; Green <= "0001"; Blue <= "0000";
-    elsif (col < (320 - (row/2))) and blank = '0' then
-      Red <= "0111"; Green <= "0111"; Blue <= "0000";
-    elsif (col > (320 + (row/2))) and blank = '0' then
-      Red <= "0111"; Green <= "0111"; Blue <= "0000";
+    -- Normal color scheme is a floor with a yellow spotlight area and grayed
+    -- out edges 
+    if back_invert = '0' then
+      if (row > 440 and blank = '0') then -- bottom floor layer
+        Red <= "1100"; Green <= "0011"; Blue <= "0000";
+      elsif (row > 430 and row <= 440) and blank = '0' then -- thin top floor layer
+        Red <= "0100"; Green <= "0001"; Blue <= "0000";
+      elsif (col < (320 - (row/2))) and blank = '0' then -- left diagonal
+        Red <= "0111"; Green <= "0111"; Blue <= "0000";
+      elsif (col > (320 + (row/2))) and blank = '0' then -- right diagonal
+        Red <= "0111"; Green <= "0111"; Blue <= "0000";
+      elsif blank = '0' then
+        Red <= "1111"; Green <= "1111"; Blue <= "0000";
+      else
+        Red <= "0000"; Green <= "0000"; Blue <= "0000";
+      end if;
+
+      -- if you win the color scheme is inverted and the ball dissapears.
+      -- Should have been something cooler.
+  elsif back_invert = '1' then
+    if (row > 440 and blank = '0') then -- bottom floor layer
+      Red <= "0011"; Green <= "1100"; Blue <= "1111";
+    elsif (row > 430 and row <= 440) and blank = '0' then -- thin top floor layer
+      Red <= "1011"; Green <= "1110"; Blue <= "1111";
+    elsif (col < (320 - (row/2))) and blank = '0' then -- left diagonal
+      Red <= "1000"; Green <= "1000"; Blue <= "1111";
+    elsif (col > (320 + (row/2))) and blank = '0' then -- right diagonal
+      Red <= "1000"; Green <= "1000"; Blue <= "1111";
     elsif blank = '0' then
-      Red <= "1111"; Green <= "1111"; Blue <= "0000";
+      Red <= "0000"; Green <= "0000"; Blue <= "1111";
     else
       Red <= "0000"; Green <= "0000"; Blue <= "0000";
     end if;
+  end if; 
   end process;
 
 

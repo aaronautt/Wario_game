@@ -27,6 +27,7 @@ set_property used_in_implementation false [get_files /home/aaron/school/EGR426/W
 read_vhdl -library xil_defaultlib {
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Wario_logic.vhd
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/Debouncer.vhd
+  /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/seven_seg_off.vhd
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/wario_pic.vhd
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/swing.vhd
   /home/aaron/school/EGR426/Wario/vgademo1_bars.srcs/sources_1/new/words.vhd
